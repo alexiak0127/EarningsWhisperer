@@ -19,7 +19,7 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 ## **Goals**
 - Develop a **stock movement prediction model** based on earnings reports.
 - Implement **sentiment analysis** to classify earnings reports as **positive, neutral, or negative**.
-- Train a **machine learning model** (Logistic Regression, Random Forest, and more) to predict stock movement based on report sentiment.
+- Train a **machine learning model** (Logistic Regression, Random Forest, and Deep Neural Networks) to predict stock movement based on report sentiment.
 - Create **visualizations** to showcase stock trends before and after earnings.
 
 ## **Data Collection**
