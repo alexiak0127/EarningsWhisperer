@@ -56,6 +56,7 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 ### **Model Architecture:**
 - **Sentiment Analysis Pipeline:** Convert earnings reports into structured sentiment scores.
 - **Machine Learning Classifier:** Train models (Logistic Regression, Random Forest, and more) to predict stock price direction.
+- **Deep Learning Motivation:** Given the potentially large and high-dimensional dataset, especially from textual features, deep neural networks may better capture nonlinear patterns and interactions.
 - **Baseline Comparison:** Compare predictions against a simple buy-and-hold strategy and market index performance.
 - **Hyperparameter Tuning:** Optimize learning rate, tree depth, and regularization parameters.
 
