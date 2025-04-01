@@ -1,0 +1,428 @@
+ticker,company,year,quarter,sentiment_score,positive_count,negative_count,sentiment,filing_path
+AAPL,Apple Inc.,2024,3,1.0,389,0,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-24-038601/full-submission.txt
+AAPL,Apple Inc.,2021,1,1.0,412,0,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-21-054710/full-submission.txt
+AAPL,Apple Inc.,2023,2,0.975609756097561,405,5,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-23-000063/full-submission.txt
+AAPL,Apple Inc.,2024,3,0.9586466165413534,521,11,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-24-038403/full-submission.txt
+AAPL,Apple Inc.,2021,3,0.9090909090909091,483,23,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-21-237787/full-submission.txt
+AAPL,Apple Inc.,2022,2,0.9813519813519813,425,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-22-000058/full-submission.txt
+AAPL,Apple Inc.,2022,3,0.9808612440191388,414,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-22-000069/full-submission.txt
+AAPL,Apple Inc.,2021,1,0.9811320754716981,420,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-21-000009/full-submission.txt
+AAPL,Apple Inc.,2024,3,0.9948979591836735,391,1,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-24-040659/full-submission.txt
+AAPL,Apple Inc.,2021,2,0.9811764705882353,421,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-21-000055/full-submission.txt
+AAPL,Apple Inc.,2024,3,0.9847328244274809,390,3,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-24-000080/full-submission.txt
+AAPL,Apple Inc.,2021,3,0.9810874704491725,419,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-21-000063/full-submission.txt
+AAPL,Apple Inc.,2024,2,0.9847715736040609,391,3,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-24-000067/full-submission.txt
+AAPL,Apple Inc.,2022,4,0.9809523809523809,416,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-22-000107/full-submission.txt
+AAPL,Apple Inc.,2024,1,0.9847715736040609,391,3,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-24-000005/full-submission.txt
+AAPL,Apple Inc.,2023,4,0.980440097799511,405,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-23-000104/full-submission.txt
+AAPL,Apple Inc.,2024,2,0.9373695198329853,464,15,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-24-024352/full-submission.txt
+AAPL,Apple Inc.,2021,4,0.9764705882352941,420,5,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-21-000104/full-submission.txt
+AAPL,Apple Inc.,2023,2,0.9032882011605415,492,25,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-23-023909/full-submission.txt
+AAPL,Apple Inc.,2021,1,1.0,406,0,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-21-001982/full-submission.txt
+AAPL,Apple Inc.,2023,1,0.9705882352941176,402,6,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-23-000005/full-submission.txt
+AAPL,Apple Inc.,2021,1,0.9,513,27,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-21-032394/full-submission.txt
+AAPL,Apple Inc.,2022,3,0.9535714285714286,547,13,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-22-225365/full-submission.txt
+AAPL,Apple Inc.,2022,1,0.95,468,12,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-22-066169/full-submission.txt
+AAPL,Apple Inc.,2022,1,0.9811320754716981,420,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-22-000006/full-submission.txt
+AAPL,Apple Inc.,2021,4,0.967479674796748,484,8,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-21-328151/full-submission.txt
+AAPL,Apple Inc.,2023,1,1.0,409,0,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-23-011192/full-submission.txt
+AAPL,Apple Inc.,2022,3,0.9090909090909091,483,23,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-22-214914/full-submission.txt
+AAPL,Apple Inc.,2022,4,0.9853658536585366,407,3,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001193125-22-278435/full-submission.txt
+AAPL,Apple Inc.,2024,1,1.0,397,0,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0001140361-24-010155/full-submission.txt
+AAPL,Apple Inc.,2023,3,0.9803439803439803,403,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-23-000075/full-submission.txt
+AAPL,Apple Inc.,2024,4,0.9796954314720813,390,4,positive,data/raw/earnings_filings/sec-edgar-filings/AAPL/8-K/0000320193-24-000120/full-submission.txt
+MSFT,Microsoft Corporation,2024,2,0.9465875370919882,328,9,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-24-048268/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,0.9869281045751634,304,2,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-254151/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,1.0,300,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-265616/full-submission.txt
+MSFT,Microsoft Corporation,2024,4,0.9935897435897436,311,1,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-24-275524/full-submission.txt
+MSFT,Microsoft Corporation,2021,4,1.0,309,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-343711/full-submission.txt
+MSFT,Microsoft Corporation,2021,2,0.9753086419753086,320,4,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-112687/full-submission.txt
+MSFT,Microsoft Corporation,2021,3,1.0,312,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-210827/full-submission.txt
+MSFT,Microsoft Corporation,2022,1,0.9626168224299065,315,6,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-010667/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,0.9872611464968153,312,2,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-291720/full-submission.txt
+MSFT,Microsoft Corporation,2024,3,0.9573333333333334,367,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-24-204403/full-submission.txt
+MSFT,Microsoft Corporation,2023,1,0.8771929824561403,321,21,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-014230/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,1.0,300,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-255762/full-submission.txt
+MSFT,Microsoft Corporation,2021,2,0.9544159544159544,343,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-134213/full-submission.txt
+MSFT,Microsoft Corporation,2021,1,0.9516616314199395,323,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-065751/full-submission.txt
+MSFT,Microsoft Corporation,2024,1,1.0,302,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-24-011295/full-submission.txt
+MSFT,Microsoft Corporation,2021,3,0.8823529411764706,416,26,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-225746/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,0.7543859649122807,1050,147,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-271376/full-submission.txt
+MSFT,Microsoft Corporation,2023,3,0.9523809523809523,369,9,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-181341/full-submission.txt
+MSFT,Microsoft Corporation,2024,4,0.9640718562874252,328,6,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-24-118955/full-submission.txt
+MSFT,Microsoft Corporation,2021,2,1.0,312,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-167940/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,1.0,281,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001104659-23-109428/full-submission.txt
+MSFT,Microsoft Corporation,2024,4,0.4580962993372823,12431,4620,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-24-132722/full-submission.txt
+MSFT,Microsoft Corporation,2023,3,0.7911832946635731,386,45,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-23-034400/full-submission.txt
+MSFT,Microsoft Corporation,2022,2,1.0,300,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-165839/full-submission.txt
+MSFT,Microsoft Corporation,2022,4,0.911504424778761,324,15,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-268356/full-submission.txt
+MSFT,Microsoft Corporation,2021,1,0.9656160458452722,343,6,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-017683/full-submission.txt
+MSFT,Microsoft Corporation,2022,2,0.9529411764705882,332,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-120207/full-submission.txt
+MSFT,Microsoft Corporation,2021,2,1.0,312,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-192783/full-submission.txt
+MSFT,Microsoft Corporation,2021,1,0.9752321981424149,319,4,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-044940/full-submission.txt
+MSFT,Microsoft Corporation,2024,3,0.9536231884057971,337,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-24-087835/full-submission.txt
+MSFT,Microsoft Corporation,2021,4,0.9528023598820059,331,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-307941/full-submission.txt
+MSFT,Microsoft Corporation,2022,3,0.8290993071593533,396,37,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-202034/full-submission.txt
+MSFT,Microsoft Corporation,2023,4,0.9525222551928784,329,8,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-23-054848/full-submission.txt
+MSFT,Microsoft Corporation,2024,1,0.9473684210526315,333,9,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0000950170-24-008809/full-submission.txt
+MSFT,Microsoft Corporation,2022,1,0.9644970414201184,332,6,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-017041/full-submission.txt
+MSFT,Microsoft Corporation,2022,4,1.0,311,0,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-22-306591/full-submission.txt
+MSFT,Microsoft Corporation,2021,1,0.9708454810495627,338,5,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-21-084239/full-submission.txt
+MSFT,Microsoft Corporation,2023,2,0.9228486646884273,324,13,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-115280/full-submission.txt
+MSFT,Microsoft Corporation,2023,1,0.9742765273311897,307,4,positive,data/raw/earnings_filings/sec-edgar-filings/MSFT/8-K/0001193125-23-009934/full-submission.txt
+GOOGL,Alphabet Inc.,2021,2,0.9386503067484663,316,10,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-21-182989/full-submission.txt
+GOOGL,Alphabet Inc.,2022,3,0.8827160493827161,305,19,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-22-000068/full-submission.txt
+GOOGL,Alphabet Inc.,2022,4,1.0,291,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-22-310153/full-submission.txt
+GOOGL,Alphabet Inc.,2021,1,0.8802395209580839,314,20,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-21-000006/full-submission.txt
+GOOGL,Alphabet Inc.,2021,4,0.901840490797546,310,16,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-21-000054/full-submission.txt
+GOOGL,Alphabet Inc.,2021,1,1.0,291,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-21-069770/full-submission.txt
+GOOGL,Alphabet Inc.,2024,1,0.9863013698630136,290,2,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000032/full-submission.txt
+GOOGL,Alphabet Inc.,2024,2,1.0,293,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-24-154725/full-submission.txt
+GOOGL,Alphabet Inc.,2024,2,1.0,288,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-24-168745/full-submission.txt
+GOOGL,Alphabet Inc.,2021,3,0.9009287925696594,307,16,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-21-000041/full-submission.txt
+GOOGL,Alphabet Inc.,2024,4,0.893491124260355,320,18,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000115/full-submission.txt
+GOOGL,Alphabet Inc.,2023,2,0.8647058823529412,317,23,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000041/full-submission.txt
+GOOGL,Alphabet Inc.,2023,1,0.8734939759036144,311,21,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000013/full-submission.txt
+GOOGL,Alphabet Inc.,2021,2,1.0,288,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-21-111624/full-submission.txt
+GOOGL,Alphabet Inc.,2022,2,0.9413333333333334,364,11,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-22-167375/full-submission.txt
+GOOGL,Alphabet Inc.,2023,2,0.9519519519519519,325,8,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-23-163590/full-submission.txt
+GOOGL,Alphabet Inc.,2023,2,0.9667774086378738,296,5,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000034/full-submission.txt
+GOOGL,Alphabet Inc.,2024,2,1.0,288,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-24-157498/full-submission.txt
+GOOGL,Alphabet Inc.,2023,1,1.0,291,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000005/full-submission.txt
+GOOGL,Alphabet Inc.,2022,1,0.9931740614334471,292,1,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-22-000009/full-submission.txt
+GOOGL,Alphabet Inc.,2023,3,0.8931750741839762,319,18,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000067/full-submission.txt
+GOOGL,Alphabet Inc.,2023,2,1.0,288,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-23-110657/full-submission.txt
+GOOGL,Alphabet Inc.,2024,1,0.8805970149253731,315,20,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000014/full-submission.txt
+GOOGL,Alphabet Inc.,2022,3,0.9862068965517241,288,2,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-22-193655/full-submission.txt
+GOOGL,Alphabet Inc.,2024,3,1.0,290,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000085/full-submission.txt
+GOOGL,Alphabet Inc.,2024,3,0.879154078549849,311,20,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000076/full-submission.txt
+GOOGL,Alphabet Inc.,2024,2,0.8798798798798799,313,20,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000047/full-submission.txt
+GOOGL,Alphabet Inc.,2022,3,0.9931506849315068,291,1,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-22-192153/full-submission.txt
+GOOGL,Alphabet Inc.,2024,2,1.0,306,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-24-160721/full-submission.txt
+GOOGL,Alphabet Inc.,2024,3,1.0,290,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-24-000097/full-submission.txt
+GOOGL,Alphabet Inc.,2021,2,0.9015384615384615,309,16,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-21-000018/full-submission.txt
+GOOGL,Alphabet Inc.,2022,4,0.8921568627450981,386,22,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-22-000085/full-submission.txt
+GOOGL,Alphabet Inc.,2021,3,1.0,289,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-21-210942/full-submission.txt
+GOOGL,Alphabet Inc.,2022,2,0.8827160493827161,305,19,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-22-000025/full-submission.txt
+GOOGL,Alphabet Inc.,2023,1,0.9795221843003413,290,3,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-23-011424/full-submission.txt
+GOOGL,Alphabet Inc.,2024,4,1.0,288,0,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001193125-24-238769/full-submission.txt
+GOOGL,Alphabet Inc.,2023,4,0.8841463414634146,309,19,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-23-000088/full-submission.txt
+GOOGL,Alphabet Inc.,2022,1,0.9058823529411765,324,16,positive,data/raw/earnings_filings/sec-edgar-filings/GOOGL/8-K/0001652044-22-000015/full-submission.txt
+AMZN,Amazon.com Inc.,2023,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-23-000014/full-submission.txt
+AMZN,Amazon.com Inc.,2022,2,0.7307692307692307,315,49,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000011/full-submission.txt
+AMZN,Amazon.com Inc.,2021,2,0.9288025889967637,298,11,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-21-050346/full-submission.txt
+AMZN,Amazon.com Inc.,2022,3,0.7079889807162535,310,53,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000017/full-submission.txt
+AMZN,Amazon.com Inc.,2022,4,0.7158469945355191,314,52,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000021/full-submission.txt
+AMZN,Amazon.com Inc.,2022,2,0.89937106918239,302,16,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-22-045579/full-submission.txt
+AMZN,Amazon.com Inc.,2023,4,0.7809694793536804,496,61,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-23-113444/full-submission.txt
+AMZN,Amazon.com Inc.,2021,2,1.0,281,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000012/full-submission.txt
+AMZN,Amazon.com Inc.,2021,3,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000022/full-submission.txt
+AMZN,Amazon.com Inc.,2023,2,0.9021406727828746,311,16,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-23-044715/full-submission.txt
+AMZN,Amazon.com Inc.,2023,1,0.9306666666666666,362,13,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-23-003621/full-submission.txt
+AMZN,Amazon.com Inc.,2021,2,0.8677248677248677,353,25,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-21-159084/full-submission.txt
+AMZN,Amazon.com Inc.,2022,2,0.8861386138613861,381,23,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-22-104336/full-submission.txt
+AMZN,Amazon.com Inc.,2024,2,0.803921568627451,322,35,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-24-000081/full-submission.txt
+AMZN,Amazon.com Inc.,2023,1,0.8868894601542416,367,22,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-23-000849/full-submission.txt
+AMZN,Amazon.com Inc.,2021,2,0.8126721763085399,329,34,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000008/full-submission.txt
+AMZN,Amazon.com Inc.,2021,4,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000030/full-submission.txt
+AMZN,Amazon.com Inc.,2023,2,0.723404255319149,324,52,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-23-000006/full-submission.txt
+AMZN,Amazon.com Inc.,2022,1,0.8166189111747851,317,32,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000002/full-submission.txt
+AMZN,Amazon.com Inc.,2023,3,0.7050938337801609,318,55,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-23-000010/full-submission.txt
+AMZN,Amazon.com Inc.,2022,2,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000015/full-submission.txt
+AMZN,Amazon.com Inc.,2024,3,0.8545454545454545,306,24,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-24-000128/full-submission.txt
+AMZN,Amazon.com Inc.,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-21-018066/full-submission.txt
+AMZN,Amazon.com Inc.,2023,4,0.7250673854447439,320,51,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-23-000016/full-submission.txt
+AMZN,Amazon.com Inc.,2021,3,1.0,266,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000016/full-submission.txt
+AMZN,Amazon.com Inc.,2021,3,0.8352941176470589,312,28,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000018/full-submission.txt
+AMZN,Amazon.com Inc.,2024,1,0.7025641025641025,332,58,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-24-000006/full-submission.txt
+AMZN,Amazon.com Inc.,2023,2,1.0,283,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-23-065457/full-submission.txt
+AMZN,Amazon.com Inc.,2021,4,0.8208955223880597,305,30,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000026/full-submission.txt
+AMZN,Amazon.com Inc.,2022,2,0.9932432432432432,295,1,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-22-065872/full-submission.txt
+AMZN,Amazon.com Inc.,2024,2,1.0,260,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-24-061143/full-submission.txt
+AMZN,Amazon.com Inc.,2021,1,0.8443804034582133,320,27,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-21-000002/full-submission.txt
+AMZN,Amazon.com Inc.,2024,2,0.8483965014577259,317,26,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-24-045915/full-submission.txt
+AMZN,Amazon.com Inc.,2024,2,1.0,278,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-24-065117/full-submission.txt
+AMZN,Amazon.com Inc.,2024,2,0.9257294429708223,363,14,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001104659-24-057026/full-submission.txt
+AMZN,Amazon.com Inc.,2022,4,0.8932584269662921,337,19,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-22-296602/full-submission.txt
+AMZN,Amazon.com Inc.,2023,1,0.6657963446475196,319,64,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-23-000002/full-submission.txt
+AMZN,Amazon.com Inc.,2022,1,1.0,266,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-22-000009/full-submission.txt
+AMZN,Amazon.com Inc.,2022,4,0.8727735368956743,368,25,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001193125-22-289041/full-submission.txt
+AMZN,Amazon.com Inc.,2024,4,0.8662613981762918,307,22,positive,data/raw/earnings_filings/sec-edgar-filings/AMZN/8-K/0001018724-24-000158/full-submission.txt
+NVDA,NVIDIA Corporation,2022,1,0.9447513812154696,352,10,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000023/full-submission.txt
+NVDA,NVIDIA Corporation,2023,4,0.8837209302325582,324,20,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000225/full-submission.txt
+NVDA,NVIDIA Corporation,2024,2,0.9784172661870504,275,3,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000144/full-submission.txt
+NVDA,NVIDIA Corporation,2024,4,0.8771929824561403,321,21,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000315/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,0.8476658476658476,376,31,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001193125-21-192149/full-submission.txt
+NVDA,NVIDIA Corporation,2023,2,0.6170212765957447,304,72,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000087/full-submission.txt
+NVDA,NVIDIA Corporation,2023,3,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000164/full-submission.txt
+NVDA,NVIDIA Corporation,2022,3,0.8716216216216216,277,19,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000133/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,0.9786476868327402,278,3,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000075/full-submission.txt
+NVDA,NVIDIA Corporation,2022,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000151/full-submission.txt
+NVDA,NVIDIA Corporation,2023,3,0.8516320474777448,312,25,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000171/full-submission.txt
+NVDA,NVIDIA Corporation,2023,2,1.0,279,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000146/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,0.9925925925925926,269,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000056/full-submission.txt
+NVDA,NVIDIA Corporation,2021,1,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000034/full-submission.txt
+NVDA,NVIDIA Corporation,2024,4,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000300/full-submission.txt
+NVDA,NVIDIA Corporation,2022,1,0.842391304347826,339,29,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000008/full-submission.txt
+NVDA,NVIDIA Corporation,2022,2,0.6675324675324675,321,64,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000073/full-submission.txt
+NVDA,NVIDIA Corporation,2023,1,0.4939759036144578,310,105,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000014/full-submission.txt
+NVDA,NVIDIA Corporation,2023,4,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000221/full-submission.txt
+NVDA,NVIDIA Corporation,2024,2,0.850828729281768,335,27,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000113/full-submission.txt
+NVDA,NVIDIA Corporation,2023,4,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000217/full-submission.txt
+NVDA,NVIDIA Corporation,2021,4,0.839541547277937,321,28,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000160/full-submission.txt
+NVDA,NVIDIA Corporation,2022,2,0.9345238095238095,325,11,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000088/full-submission.txt
+NVDA,NVIDIA Corporation,2024,1,0.9470899470899471,368,10,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000069/full-submission.txt
+NVDA,NVIDIA Corporation,2022,3,0.45754716981132076,309,115,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000136/full-submission.txt
+NVDA,NVIDIA Corporation,2024,3,1.0,280,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000206/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,0.9927797833935018,276,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000047/full-submission.txt
+NVDA,NVIDIA Corporation,2022,4,0.5255102040816326,299,93,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000163/full-submission.txt
+NVDA,NVIDIA Corporation,2024,3,0.9161676646706587,320,14,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000262/full-submission.txt
+NVDA,NVIDIA Corporation,2024,1,0.88,329,21,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-24-000028/full-submission.txt
+NVDA,NVIDIA Corporation,2021,1,0.7772020725388601,343,43,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000007/full-submission.txt
+NVDA,NVIDIA Corporation,2022,3,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000146/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,0.8465909090909091,325,27,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000063/full-submission.txt
+NVDA,NVIDIA Corporation,2023,1,0.9452054794520548,355,10,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-23-000039/full-submission.txt
+NVDA,NVIDIA Corporation,2021,2,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000117/full-submission.txt
+NVDA,NVIDIA Corporation,2021,3,0.9064327485380117,326,16,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-21-000128/full-submission.txt
+NVDA,NVIDIA Corporation,2022,1,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/NVDA/8-K/0001045810-22-000005/full-submission.txt
+META,Meta Platforms Inc.,2021,4,0.9518072289156626,405,10,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000071/full-submission.txt
+META,Meta Platforms Inc.,2024,2,1.0,280,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000057/full-submission.txt
+META,Meta Platforms Inc.,2021,3,0.9930555555555556,287,1,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000047/full-submission.txt
+META,Meta Platforms Inc.,2021,2,1.0,275,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000040/full-submission.txt
+META,Meta Platforms Inc.,2024,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000003/full-submission.txt
+META,Meta Platforms Inc.,2024,3,0.9042253521126761,338,17,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001193125-24-197873/full-submission.txt
+META,Meta Platforms Inc.,2023,2,0.9787234042553191,279,3,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000083/full-submission.txt
+META,Meta Platforms Inc.,2023,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000015/full-submission.txt
+META,Meta Platforms Inc.,2023,1,1.0,266,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000023/full-submission.txt
+META,Meta Platforms Inc.,2022,2,1.0,266,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000073/full-submission.txt
+META,Meta Platforms Inc.,2022,3,0.8148893360160966,451,46,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0000950103-22-013830/full-submission.txt
+META,Meta Platforms Inc.,2023,2,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000038/full-submission.txt
+META,Meta Platforms Inc.,2022,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000094/full-submission.txt
+META,Meta Platforms Inc.,2023,1,0.900990099009901,288,15,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000008/full-submission.txt
+META,Meta Platforms Inc.,2023,2,0.9515570934256056,282,7,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000063/full-submission.txt
+META,Meta Platforms Inc.,2022,2,1.0,281,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000066/full-submission.txt
+META,Meta Platforms Inc.,2023,2,0.9042253521126761,338,17,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001193125-23-134410/full-submission.txt
+META,Meta Platforms Inc.,2024,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000019/full-submission.txt
+META,Meta Platforms Inc.,2021,2,0.9861111111111112,286,2,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000031/full-submission.txt
+META,Meta Platforms Inc.,2024,1,0.934640522875817,296,10,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000010/full-submission.txt
+META,Meta Platforms Inc.,2024,2,0.9575971731448764,277,6,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000044/full-submission.txt
+META,Meta Platforms Inc.,2021,4,0.9716312056737588,278,4,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000062/full-submission.txt
+META,Meta Platforms Inc.,2021,3,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000053/full-submission.txt
+META,Meta Platforms Inc.,2024,3,0.9691516709511568,383,6,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000072/full-submission.txt
+META,Meta Platforms Inc.,2023,4,0.9259259259259259,286,11,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000100/full-submission.txt
+META,Meta Platforms Inc.,2022,4,0.9466666666666667,292,8,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000105/full-submission.txt
+META,Meta Platforms Inc.,2024,3,0.9577464788732394,278,6,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000065/full-submission.txt
+META,Meta Platforms Inc.,2021,1,0.9581881533101045,281,6,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-21-000011/full-submission.txt
+META,Meta Platforms Inc.,2023,3,0.9269102990033222,290,11,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000089/full-submission.txt
+META,Meta Platforms Inc.,2022,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000085/full-submission.txt
+META,Meta Platforms Inc.,2023,1,0.9924242424242424,263,1,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000019/full-submission.txt
+META,Meta Platforms Inc.,2022,1,0.9656357388316151,286,5,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000015/full-submission.txt
+META,Meta Platforms Inc.,2022,3,1.0,260,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0000950103-22-013666/full-submission.txt
+META,Meta Platforms Inc.,2022,2,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000070/full-submission.txt
+META,Meta Platforms Inc.,2022,3,0.9298245614035088,275,10,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000079/full-submission.txt
+META,Meta Platforms Inc.,2022,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000006/full-submission.txt
+META,Meta Platforms Inc.,2023,1,0.9241379310344827,279,11,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-23-000035/full-submission.txt
+META,Meta Platforms Inc.,2022,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000030/full-submission.txt
+META,Meta Platforms Inc.,2022,2,0.9575971731448764,277,6,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000054/full-submission.txt
+META,Meta Platforms Inc.,2024,4,0.971830985915493,280,4,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-24-000077/full-submission.txt
+META,Meta Platforms Inc.,2022,4,0.9172413793103448,278,12,positive,data/raw/earnings_filings/sec-edgar-filings/META/8-K/0001326801-22-000116/full-submission.txt
+TSLA,Tesla Inc.,2023,2,1.0,267,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-007379/full-submission.txt
+TSLA,Tesla Inc.,2022,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-011875/full-submission.txt
+TSLA,Tesla Inc.,2021,4,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-058953/full-submission.txt
+TSLA,Tesla Inc.,2024,4,0.9130434782608695,330,15,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001628280-24-043432/full-submission.txt
+TSLA,Tesla Inc.,2021,4,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-049874/full-submission.txt
+TSLA,Tesla Inc.,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-000010/full-submission.txt
+TSLA,Tesla Inc.,2023,4,0.9847908745247148,261,2,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-23-050938/full-submission.txt
+TSLA,Tesla Inc.,2021,3,1.0,258,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-21-000423/full-submission.txt
+TSLA,Tesla Inc.,2023,2,0.9359430604982206,272,9,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-005959/full-submission.txt
+TSLA,Tesla Inc.,2022,2,0.9923664122137404,261,1,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-013264/full-submission.txt
+TSLA,Tesla Inc.,2024,4,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001628280-24-041816/full-submission.txt
+TSLA,Tesla Inc.,2021,3,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-046390/full-submission.txt
+TSLA,Tesla Inc.,2022,3,1.0,278,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-028207/full-submission.txt
+TSLA,Tesla Inc.,2022,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-000009/full-submission.txt
+TSLA,Tesla Inc.,2021,1,0.9413680781758957,298,9,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-002645/full-submission.txt
+TSLA,Tesla Inc.,2023,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-000002/full-submission.txt
+TSLA,Tesla Inc.,2021,3,0.8857142857142857,297,18,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-037953/full-submission.txt
+TSLA,Tesla Inc.,2022,2,1.0,262,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-017214/full-submission.txt
+TSLA,Tesla Inc.,2024,2,0.7927170868347339,320,37,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-24-046895/full-submission.txt
+TSLA,Tesla Inc.,2024,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-24-000282/full-submission.txt
+TSLA,Tesla Inc.,2024,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001628280-24-030714/full-submission.txt
+TSLA,Tesla Inc.,2021,1,1.0,262,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-012962/full-submission.txt
+TSLA,Tesla Inc.,2023,3,0.9652777777777778,283,5,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-23-033695/full-submission.txt
+TSLA,Tesla Inc.,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-012981/full-submission.txt
+TSLA,Tesla Inc.,2024,3,0.875,330,22,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001628280-24-032603/full-submission.txt
+TSLA,Tesla Inc.,2023,1,0.9300699300699301,276,10,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-000799/full-submission.txt
+TSLA,Tesla Inc.,2021,4,1.0,271,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-050737/full-submission.txt
+TSLA,Tesla Inc.,2021,4,0.8653846153846154,291,21,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-051307/full-submission.txt
+TSLA,Tesla Inc.,2022,3,1.0,262,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-032575/full-submission.txt
+TSLA,Tesla Inc.,2024,2,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-24-044588/full-submission.txt
+TSLA,Tesla Inc.,2023,3,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-23-031241/full-submission.txt
+TSLA,Tesla Inc.,2022,3,0.9923664122137404,261,1,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-025153/full-submission.txt
+TSLA,Tesla Inc.,2023,3,0.8823529411764706,304,19,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-23-033544/full-submission.txt
+TSLA,Tesla Inc.,2022,4,0.9923954372623575,262,1,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-033053/full-submission.txt
+TSLA,Tesla Inc.,2021,2,0.8509316770186336,298,24,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-020558/full-submission.txt
+TSLA,Tesla Inc.,2023,4,0.8658536585365854,306,22,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001628280-23-034588/full-submission.txt
+TSLA,Tesla Inc.,2024,1,0.8051575931232091,315,34,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-24-007073/full-submission.txt
+TSLA,Tesla Inc.,2022,4,0.9280575539568345,268,10,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-034639/full-submission.txt
+TSLA,Tesla Inc.,2023,2,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-005126/full-submission.txt
+TSLA,Tesla Inc.,2023,3,0.9923954372623575,262,1,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-23-038779/full-submission.txt
+TSLA,Tesla Inc.,2022,2,0.922077922077922,296,12,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-014917/full-submission.txt
+TSLA,Tesla Inc.,2023,2,0.9523809523809523,369,9,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-23-005462/full-submission.txt
+TSLA,Tesla Inc.,2021,2,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-031976/full-submission.txt
+TSLA,Tesla Inc.,2021,2,1.0,262,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-017443/full-submission.txt
+TSLA,Tesla Inc.,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-21-000008/full-submission.txt
+TSLA,Tesla Inc.,2022,1,0.9555555555555556,308,7,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-002476/full-submission.txt
+TSLA,Tesla Inc.,2024,2,0.9847908745247148,261,2,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0000950170-24-040274/full-submission.txt
+TSLA,Tesla Inc.,2024,2,1.0,277,0,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001104659-24-071439/full-submission.txt
+TSLA,Tesla Inc.,2022,3,0.8957055214723927,309,17,positive,data/raw/earnings_filings/sec-edgar-filings/TSLA/8-K/0001564590-22-026048/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,2,0.48717948717948717,319,110,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000054/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,1,0.4847161572052402,340,118,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000009/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,4,0.6074766355140186,344,84,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000168/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,2,0.5113350125944585,300,97,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000074/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,1,0.8195876288659794,353,35,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000014/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-21-169293/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,1,0.9376623376623376,373,12,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001628280-24-005593/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,4,0.992619926199262,270,1,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000172/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,3,0.6683673469387755,327,65,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000121/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,0.9776951672862454,266,3,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000107/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,3,0.8879551820728291,337,20,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000114/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,1,0.9855072463768116,274,2,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000003/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,4,0.8611111111111112,335,25,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000176/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,4,0.7929155313351499,329,38,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000161/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,1,0.9776119402985075,265,3,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000009/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,1,0.9283387622149837,296,11,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000031/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000054/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,1,0.9776951672862454,266,3,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000005/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,1,1.0,269,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000002/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,3,0.9924812030075187,265,1,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000123/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,1,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000033/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,4,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000172/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,3,0.8177083333333334,349,35,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000120/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,2,1.0,267,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000076/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000068/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,3,0.394919168591224,302,131,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000135/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,4,0.867595818815331,268,19,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000163/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,4,0.660759493670886,328,67,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000192/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,0.9854014598540146,272,2,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000046/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,3,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000115/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,1,0.9562043795620438,268,6,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000026/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,2,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-22-156161/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,0.9851301115241635,267,2,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000103/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000040/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,2,0.6777777777777778,604,116,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000074/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,1,0.9706959706959707,269,4,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-21-073262/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,3,0.9924812030075187,265,1,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-24-000109/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,1,0.4945054945054945,340,115,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-23-000007/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,2,0.8726114649681529,294,20,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-22-170212/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,2,0.8591549295774648,396,30,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-22-171108/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,4,1.0,266,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000176/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,4,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000205/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,2,0.824,342,33,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000054/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2021,1,0.7766233766233767,342,43,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-21-000009/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2022,2,0.9850187265917603,265,2,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0000002488-22-000112/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2023,2,1.0,265,0,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-23-151810/full-submission.txt
+AMD,Advanced Micro Devices Inc.,2024,3,0.8560411311053985,361,28,positive,data/raw/earnings_filings/sec-edgar-filings/AMD/8-K/0001193125-24-202457/full-submission.txt
+INTC,Intel Corporation,2024,2,0.7101449275362319,295,50,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000074/full-submission.txt
+INTC,Intel Corporation,2022,1,0.9927272727272727,274,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-005658/full-submission.txt
+INTC,Intel Corporation,2021,1,1.0,313,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-009142/full-submission.txt
+INTC,Intel Corporation,2021,4,0.8348623853211009,300,27,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-21-000037/full-submission.txt
+INTC,Intel Corporation,2022,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-032684/full-submission.txt
+INTC,Intel Corporation,2022,4,0.9866220735785953,297,2,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-290385/full-submission.txt
+INTC,Intel Corporation,2024,2,0.9924528301886792,264,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000086/full-submission.txt
+INTC,Intel Corporation,2023,4,0.8649789029535865,442,32,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000128/full-submission.txt
+INTC,Intel Corporation,2021,1,0.7606837606837606,309,42,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-21-000009/full-submission.txt
+INTC,Intel Corporation,2021,3,0.9923954372623575,262,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-218615/full-submission.txt
+INTC,Intel Corporation,2021,4,0.9699248120300752,262,4,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-369552/full-submission.txt
+INTC,Intel Corporation,2022,2,0.6419753086419753,399,87,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-22-000019/full-submission.txt
+INTC,Intel Corporation,2021,2,0.9924528301886792,264,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-196285/full-submission.txt
+INTC,Intel Corporation,2022,3,0.6850828729281768,305,57,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-22-000029/full-submission.txt
+INTC,Intel Corporation,2022,2,1.0,269,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-151752/full-submission.txt
+INTC,Intel Corporation,2021,3,1.0,269,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-224438/full-submission.txt
+INTC,Intel Corporation,2024,3,0.6836158192090396,298,56,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000122/full-submission.txt
+INTC,Intel Corporation,2023,3,1.0,267,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000078/full-submission.txt
+INTC,Intel Corporation,2024,4,0.6476964769647696,304,65,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000147/full-submission.txt
+INTC,Intel Corporation,2022,2,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-178756/full-submission.txt
+INTC,Intel Corporation,2024,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000003/full-submission.txt
+INTC,Intel Corporation,2021,2,1.0,268,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-166587/full-submission.txt
+INTC,Intel Corporation,2024,2,0.5294117647058824,325,100,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000068/full-submission.txt
+INTC,Intel Corporation,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-014847/full-submission.txt
+INTC,Intel Corporation,2024,1,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000033/full-submission.txt
+INTC,Intel Corporation,2024,2,1.0,270,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000093/full-submission.txt
+INTC,Intel Corporation,2021,1,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-047794/full-submission.txt
+INTC,Intel Corporation,2022,1,0.9709090909090909,271,4,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-043022/full-submission.txt
+INTC,Intel Corporation,2022,3,0.602996254681648,428,106,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-226986/full-submission.txt
+INTC,Intel Corporation,2021,4,0.9928057553956835,277,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-350395/full-submission.txt
+INTC,Intel Corporation,2022,3,0.8430379746835444,364,31,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-213699/full-submission.txt
+INTC,Intel Corporation,2021,3,0.8391959798994975,366,32,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-244840/full-submission.txt
+INTC,Intel Corporation,2022,1,0.7277777777777777,311,49,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-22-000006/full-submission.txt
+INTC,Intel Corporation,2024,2,0.5028901734104047,390,129,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000103/full-submission.txt
+INTC,Intel Corporation,2022,4,0.7183098591549296,305,50,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-22-000037/full-submission.txt
+INTC,Intel Corporation,2023,2,1.0,271,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000057/full-submission.txt
+INTC,Intel Corporation,2023,3,0.6731301939058172,302,59,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000068/full-submission.txt
+INTC,Intel Corporation,2023,4,1.0,282,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000092/full-submission.txt
+INTC,Intel Corporation,2023,1,0.5858585858585859,314,82,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000005/full-submission.txt
+INTC,Intel Corporation,2024,3,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000134/full-submission.txt
+INTC,Intel Corporation,2021,1,0.9139784946236559,356,16,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-082782/full-submission.txt
+INTC,Intel Corporation,2024,4,0.9927272727272727,274,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000169/full-submission.txt
+INTC,Intel Corporation,2024,4,0.9926739926739927,272,1,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000180/full-submission.txt
+INTC,Intel Corporation,2024,4,0.9709090909090909,271,4,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000173/full-submission.txt
+INTC,Intel Corporation,2021,3,0.9851851851851852,268,2,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-214206/full-submission.txt
+INTC,Intel Corporation,2021,4,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-293329/full-submission.txt
+INTC,Intel Corporation,2022,3,1.0,261,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-218541/full-submission.txt
+INTC,Intel Corporation,2023,2,0.655367231638418,293,61,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000027/full-submission.txt
+INTC,Intel Corporation,2022,1,0.853904282115869,368,29,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-045883/full-submission.txt
+INTC,Intel Corporation,2024,2,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000110/full-submission.txt
+INTC,Intel Corporation,2022,4,0.6410256410256411,352,77,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-22-291100/full-submission.txt
+INTC,Intel Corporation,2021,1,0.9331103678929766,289,10,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-21-091374/full-submission.txt
+INTC,Intel Corporation,2024,1,0.871866295264624,336,23,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-24-041435/full-submission.txt
+INTC,Intel Corporation,2023,4,0.6892655367231638,299,55,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000100/full-submission.txt
+INTC,Intel Corporation,2024,1,1.0,264,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000036/full-submission.txt
+INTC,Intel Corporation,2021,2,0.8054711246200608,297,32,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-21-000017/full-submission.txt
+INTC,Intel Corporation,2023,4,1.0,263,0,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-23-000109/full-submission.txt
+INTC,Intel Corporation,2023,1,0.8147268408551069,382,39,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0001193125-23-032608/full-submission.txt
+INTC,Intel Corporation,2021,3,0.85625,297,23,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-21-000029/full-submission.txt
+INTC,Intel Corporation,2024,1,0.6519337016574586,299,63,positive,data/raw/earnings_filings/sec-edgar-filings/INTC/8-K/0000050863-24-000008/full-submission.txt
+CRM,Salesforce Inc.,2022,1,0.7813333333333333,334,41,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000010/full-submission.txt
+CRM,Salesforce Inc.,2022,2,0.9077809798270894,331,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000019/full-submission.txt
+CRM,Salesforce Inc.,2021,3,0.872,351,24,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-280853/full-submission.txt
+CRM,Salesforce Inc.,2023,4,0.88268156424581,337,21,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000046/full-submission.txt
+CRM,Salesforce Inc.,2021,3,0.988795518207283,355,2,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-213170/full-submission.txt
+CRM,Salesforce Inc.,2021,4,0.9931506849315068,291,1,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-343775/full-submission.txt
+CRM,Salesforce Inc.,2021,3,1.0,281,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-218021/full-submission.txt
+CRM,Salesforce Inc.,2024,4,0.9036144578313253,316,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000033/full-submission.txt
+CRM,Salesforce Inc.,2021,2,1.0,276,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000024/full-submission.txt
+CRM,Salesforce Inc.,2024,1,0.7659033078880407,347,46,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000002/full-submission.txt
+CRM,Salesforce Inc.,2024,3,0.9058823529411765,324,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000020/full-submission.txt
+CRM,Salesforce Inc.,2023,1,0.9934640522875817,305,1,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-23-017661/full-submission.txt
+CRM,Salesforce Inc.,2021,1,0.9040404040404041,377,19,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000009/full-submission.txt
+CRM,Salesforce Inc.,2021,3,0.975,316,4,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-220235/full-submission.txt
+CRM,Salesforce Inc.,2021,1,0.784366576819407,331,40,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000007/full-submission.txt
+CRM,Salesforce Inc.,2022,4,0.9239766081871345,329,13,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000058/full-submission.txt
+CRM,Salesforce Inc.,2023,1,0.7564766839378239,339,47,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000007/full-submission.txt
+CRM,Salesforce Inc.,2022,4,0.9782608695652174,273,3,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000059/full-submission.txt
+CRM,Salesforce Inc.,2023,3,0.88268156424581,337,21,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000037/full-submission.txt
+CRM,Salesforce Inc.,2022,4,0.9927007299270073,273,1,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000049/full-submission.txt
+CRM,Salesforce Inc.,2022,3,0.9703264094955489,332,5,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000047/full-submission.txt
+CRM,Salesforce Inc.,2023,2,1.0,282,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000029/full-submission.txt
+CRM,Salesforce Inc.,2021,2,0.901840490797546,310,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-204769/full-submission.txt
+CRM,Salesforce Inc.,2023,2,0.8926553672316384,335,19,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000021/full-submission.txt
+CRM,Salesforce Inc.,2021,3,0.906158357771261,325,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000044/full-submission.txt
+CRM,Salesforce Inc.,2024,2,0.9161676646706587,320,14,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000007/full-submission.txt
+CRM,Salesforce Inc.,2021,1,0.9855595667870036,275,2,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000017/full-submission.txt
+CRM,Salesforce Inc.,2024,4,0.9035532994923858,375,19,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000036/full-submission.txt
+CRM,Salesforce Inc.,2021,3,1.0,273,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000042/full-submission.txt
+CRM,Salesforce Inc.,2021,2,0.9064327485380117,326,16,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000027/full-submission.txt
+CRM,Salesforce Inc.,2024,3,0.9715302491103203,277,4,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000024/full-submission.txt
+CRM,Salesforce Inc.,2022,3,1.0,291,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-22-214922/full-submission.txt
+CRM,Salesforce Inc.,2024,4,0.8565737051792829,466,36,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-24-251243/full-submission.txt
+CRM,Salesforce Inc.,2021,2,0.9566563467492261,316,7,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000033/full-submission.txt
+CRM,Salesforce Inc.,2021,4,0.9195402298850575,334,14,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-21-000051/full-submission.txt
+CRM,Salesforce Inc.,2024,3,0.9423631123919308,337,10,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-24-000014/full-submission.txt
+CRM,Salesforce Inc.,2022,2,1.0,282,0,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000030/full-submission.txt
+CRM,Salesforce Inc.,2023,1,0.9646643109540636,278,5,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-23-000003/full-submission.txt
+CRM,Salesforce Inc.,2022,2,0.8926829268292683,388,22,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-22-094496/full-submission.txt
+CRM,Salesforce Inc.,2021,3,0.9731543624161074,294,4,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-280079/full-submission.txt
+CRM,Salesforce Inc.,2022,4,0.8984771573604061,374,20,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000063/full-submission.txt
+CRM,Salesforce Inc.,2022,3,0.9230769230769231,325,13,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000038/full-submission.txt
+CRM,Salesforce Inc.,2022,4,0.9927007299270073,273,1,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001108524-22-000054/full-submission.txt
+CRM,Salesforce Inc.,2021,1,0.9929328621908127,282,1,positive,data/raw/earnings_filings/sec-edgar-filings/CRM/8-K/0001193125-21-045220/full-submission.txt
