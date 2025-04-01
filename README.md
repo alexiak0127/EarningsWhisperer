@@ -1,4 +1,4 @@
-![accuracy_by_class](https://github.com/user-attachments/assets/09ddf5b5-e4a9-4665-9423-df451a3fa235)# EarningsWhisperer: AI Reads Earnings Reports So You Don’t Have To
+# EarningsWhisperer: AI Reads Earnings Reports So You Don’t Have To
 
 ## **Project Description**
 Earnings reports offer valuable insights into a company's financial health, but investors frequently find it challenging to gauge how the market will react. Predicting stock price movements is challenging because of market efficiency, complex dependencies, and the influence of multiple factors. 
@@ -42,7 +42,6 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 - **Earnings Report Text Processing:**
   - Extracted raw text from 8-K filings.
   - Applied dictionary-based sentiment analysis using curated lists of positive and negative financial terms
-      
   - Computed sentiment score as the relative frequency of positive vs. negative terms
   - Labeled sentiment as positive, neutral, or negative
     
@@ -85,6 +84,19 @@ This approach allows me to quantify the sentiment expressed in earnings reports.
             # RSI
             feature['pre_rsi'] = pre_data['RSI'].iloc[-1] if 'RSI' in pre_data else np.nan </pre>
 
+## **Modeling**
+### **Data Preparation**
+- Split data into 80% training and 20% testing sets
+- Normalize features using StandardScaler
+- One-hot encode categorical variables like sentiment
+### **Machine Learning Models**
+- Logistic Regression
+- Random Forest
+### **Evaluation Metrics**
+- Accuracy: Proportion of correctly predicted movements
+- Classification Report
+- Confusion Matrix
+
 ## **Preliminary Visualizations**
 ### **Sentiment Distribution by Company** ###
 My analysis of sentiment across companies revealed interesting patterns in how different companies communicate in their earnings reports:
@@ -115,38 +127,47 @@ The Logistic Regression model shows a strong bias toward predicting the "stable"
 ![random_forest_confusion_matrix](visualizations/random_forest_confusion_matrix.png)
 The Random Forest model makes more balanced predictions across classes, correctly identifying 22 of 30 "down" movements and 42 of 46 "stable" periods.
 
-- **Sentiment Score Calculation:** Apply VADER NLP model and TF-IDF vectorization to quantify sentiment.
-- **Stock Movement Labeling:** Classify movement as up (1), down (-1), or stable (0) based on the closing price change on the next trading day after the earnings announcement.
-- **Time-Series Features:** Include moving averages, volatility, and price trends.
-- **Keyword Analysis:** Identify phrases in reports like “exceeds expectations” vs. “missed forecast.”
-- **Feature Engineering:** Extract financial terms and sentiment scores from text.
-
-## **Modeling**
-### **Model Architecture:**
-- I trained two models:
-  -  **Logistic Regression**
-  - **Random Forest**
+### **Coefficients Analysis**
+By examining the coefficients from our Logistic Regression model, we gain valuable insights into the factors driving each movement class:
+### **Down Class Coefficients**
+![lr_coefficients_down](visualizations/lr_coefficients_down.png)
+For "down" predictions, lower RSI values and decreased volume tend to precede downward movements.
+### **Stable Class Coefficients**
+![lr_coefficients_stable](visualizations/lr_coefficients_stable.png)
+For "stable" predictions, higher RSI and positive pre-returns indicate stability.
+### **Up Class Coefficients**
+![lr_coefficients_stable](visualizations/lr_coefficients_up.png)
+For "up" predictions, increased trading volume before earnings is the strongest predictor.
  
+## **Key Findings**
+### **Model Performance**
+- Baseline (Random Guessing): ~33% accuracy (3 classes)
+- Logistic Regression: 53.49% accuracy
+- Random Forest: 79.07% accuracy
+### **Class-Specific Performance**
+- Both models excel at predicting "stable" (0) movements (~90% accuracy)
+- Random Forest dramatically outperforms Logistic Regression on "down" (-1) predictions (73% vs. 17%)
+- "Up" (1) predictions remain challenging, with Random Forest achieving moderate success (40%) while Logistic Regression completely fails (0%)
 
-
-### **Training Approach:**
-- **Supervised Learning:** Train the model using past stock movements and earnings reports.
-- **Feature Selection:** Optimize relevant features to improve predictive accuracy.
-- **Cross-Validation:** Use k-fold validation to avoid overfitting.
-
-## **Visualization**
-- **Stock Price vs. Earnings Sentiment:** Scatter plots, time-series analysis.
-- **Model Predictions vs. Actual Stock Movements:** Confusion matrix, performance charts.
-- **Sector-Wise Performance:** Heatmap to show model accuracy per industry.
-- **Interactive Dashboards:** Real-time stock predictions based on the latest earnings reports. Users can choose specific stocks to analyze.
-
-## **Test Plan / Metrics**
-### **Data Split:**
-- **80% Training, 20% Testing** to validate model performance.
-- **Holdout Test Set:** Use a separate set of unseen earnings reports to evaluate final performance.
-
-### **Evaluation Metrics:**
-- **Classification Accuracy:** At least 70%+ accuracy for meaningful predictions.
-- **Precision, Recall, and F1-Score:** Ensure balanced recall and precision to avoid false signals.
-- **Mean Squared Error (MSE) and R² Score:** Evaluate regression-based approaches for numerical predictions.
-- **Market Comparison:** Benchmark model against real stock trends and naive investment strategies.
+## **Moving Forward**
+Moving forward, I am going to enhance my NLP approach beyond simple dictionary-based sentiment analysis, addressing class imbalance to improve prediction of upward movements. I will also attempt to use Deep Neural Networks.
+  
+## **Project Structure**
+Below is the intended project structure (as is in my local machine), but was not able to include the entire data/ due to size constraints.
+<pre>
+  EarningsWhisperer/
+├── data/
+│   ├── raw/                  # Not included in repo due to size constraints
+│   │   ├── stock_prices/
+│   │   ├── earnings_dates/
+│   │   └── earnings_filings/
+│   ├── processed/            # Included in repo as processed/
+│   └── features/             # Included in repo as features/
+├── results/
+├── visualizations/
+├── data_collection.py
+├── data_processing.py
+├── modeling.py
+├── visualizations.py
+└── README.md
+</pre>
