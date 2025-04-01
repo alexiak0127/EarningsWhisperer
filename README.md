@@ -16,6 +16,8 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 9. Intel (INTC)
 10. Salesforce (CRM)
 
+🎥 Check out my mid-term presentation here! https://youtu.be/EHeJyJaSBjA
+
 ## **Goals**
 - Develop a **stock movement prediction model** based on earnings reports.
 - Implement **sentiment analysis** to classify earnings reports as **positive, neutral, or negative**.
@@ -24,11 +26,10 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 
 ## **Data Collection**
 ### **Sources:**
-- **[Yahoo Finance API](https://pypi.org/project/yfinance/)** → Fetch historical stock prices.
-- **[SEC Edgar Database](https://www.sec.gov/edgar/searchedgar/companysearch.html)** → Extract company earnings reports.
-- **[Kaggle Datasets](https://www.kaggle.com/)** → Backup dataset for earnings data.
+- **[Yahoo Finance](https://pypi.org/project/yfinance/)** → I use the Yahoo Finance API (yfinance library) to collect historical stock data for the target companies, covering the period from 2021-01-01 to 2024-12-31. I limited the data range to keep the focus on recent market behavior while avoiding COVID-era volatility.
+- **[SEC Edgar Database](https://pypi.org/project/sec-edgar-downloader/))** → I utilize the SEC EDGAR database(sec_edgar_downloader) to collect 8-K filings containing earnings announcements. These reports provide the textual data for my sentiment analysis.
 
-### **Features:**
+### **Data Processing:**
 - **Stock Price Data:**
   - Open: Price at the start of the trading session
   - Close: Price at market close
