@@ -171,3 +171,5 @@ Below is the intended project structure (as is in my local machine), but was not
 ├── visualizations.py
 └── README.md
 </pre>
+
+In investing, an informed guess beats a gut feeling!
