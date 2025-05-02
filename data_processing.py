@@ -7,6 +7,15 @@ import glob
 import re
 from datetime import timedelta
 
+# Import RoBERTa sentiment analysis
+try:
+    from enhanced_sentiment_analysis import process_sec_filings_with_roberta
+    HAS_ROBERTA = False  # Force disable RoBERTa even if available
+    print("RoBERTa sentiment analysis is available but disabled")
+except ImportError:
+    HAS_ROBERTA = False
+    print("RoBERTa sentiment analysis not available, falling back to keyword-based method")
+
 # -- Define companies --
 # To ensure feasibility and relevance, 
 # the project focuses on 10 major publicly traded tech companies 
@@ -121,9 +130,11 @@ def process_stock_data():
     return processed_data
 
 
-# -- Processes SEC filings for sentiment --
+# -- Processes SEC filings for sentiment (original keyword-based method) --
 
-def process_sec_filings():
+# This is kept for reference and fallback only, the preferred method is RoBERTa
+
+def process_sec_filings_keyword():
     print("Processing SEC filings...")
     
     sentiment_data = []
@@ -242,9 +253,11 @@ def process_sec_filings():
         df = pd.DataFrame(sentiment_data)
         
         # Save to CSV
-        output_file = 'data/processed/earnings_sentiment.csv'
+        output_file = 'data/processed/earnings_sentiment_keyword.csv'
         df.to_csv(output_file, index=False)
-        print(f"Saved sentiment analysis to {output_file}")
+        print(f"Saved keyword-based sentiment analysis to {output_file}")
+        
+        return df
         
         return df
     else:
@@ -330,7 +343,7 @@ def create_feature_dataset(stock_data, sentiment_data):
             'return_1d': return_1d,
             'target': target
         }
-        
+
         # 7-day window before the earnings report - technical indicator calculation
         pre_date = report_date - timedelta(days=7)
         pre_data = df[(df.index >= pre_date) & (df.index < report_date)]
@@ -368,9 +381,24 @@ def main():
     os.makedirs('data/processed', exist_ok=True)
     os.makedirs('data/features', exist_ok=True)
     
+    # Process stock data (this remains the same)
     stock_data = process_stock_data()
     
-    sentiment_data = process_sec_filings()
+    # Use RoBERTa for sentiment analysis (preferred method)
+    if HAS_ROBERTA:
+        try:
+            print("Using RoBERTa for sentiment analysis...")
+            sentiment_data = process_sec_filings_with_roberta()
+            if sentiment_data is None:
+                print("RoBERTa sentiment analysis failed, falling back to keyword method.")
+                sentiment_data = process_sec_filings_keyword()
+        except Exception as e:
+            print(f"Error in RoBERTa sentiment analysis: {e}")
+            print("Falling back to keyword-based method.")
+            sentiment_data = process_sec_filings_keyword()
+    else:
+        print("RoBERTa not available. Using keyword-based sentiment analysis.")
+        sentiment_data = process_sec_filings_keyword()
     
     if sentiment_data is not None:
         create_feature_dataset(stock_data, sentiment_data)
