@@ -234,9 +234,15 @@ pre_return and pre_volume_change dominate, and sentiment_score adds moderate pre
 - XGBoost: 94.44%
   
 ### **Class-Specific Performance**
-- Both models excel at predicting "stable" (0) movements (~90% accuracy)
-- Random Forest dramatically outperforms Logistic Regression on "down" (-1) predictions (73% vs. 17%)
-- "Up" (1) predictions remain challenging, with Random Forest achieving moderate success (40%) while Logistic Regression completely fails (0%)
+- Down Class:
+  - Best predicted by XGBoost (0.95) and Random Forest (0.62).
+  - Logistic Regression performs poorly (0.30), while Adaboost is moderately accurate (0.68).
+- Stable Class:
+  - Most models perform well, with XGBoost (0.93) and Random Forest (0.89) leading.
+  - Even Logistic Regression performs decently (0.74), and Adaboost scores 0.78.
+- Up Class:
+  - A difficult class for most models except XGBoost (0.95) and Random Forest (0.68).
+  - Logistic Regression struggles significantly (0.09), while Adaboost achieves 0.50.
 
 ## **Limitations**
 - Although I implemented both RoBERTa and Neural Network models and have run them before, my laptop crashed while trying to run certain files again for final check before pushing them to my repo. I lost substantial amount of data.
