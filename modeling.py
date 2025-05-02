@@ -429,7 +429,6 @@ def main():
     results_df.to_csv('results/model_comparison.csv', index=False)
     
     print("\nModeling complete!")
-    print("Run visualization.py to create charts.")
 
 
 if __name__ == "__main__":
