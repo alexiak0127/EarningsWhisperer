@@ -181,17 +181,23 @@ The Random Forest model significantly outperforms Logistic Regression, achieving
 Examining performance across different movement classes provides deeper insights:
 ![accuracy_by_class](visualizations/accuracy_by_class.png)
 This heatmap shows:
-- Both models excel at predicting "stable" (0) movements (~90% accuracy)
+- logistic_regression performs poorly, especially for "Up" (0.09).
 - Random Forest dramatically outperforms Logistic Regression on "down" (-1) predictions (73% vs. 17%)
 - "Up" (1) predictions remain challenging, with Random Forest achieving moderate success (40%) while Logistic Regression completely fails (0%)
 
 ### **Confusion Matrices** ###
 The confusion matrices reveal the specific prediction patterns of my models:
 ![logistic_regression_confusion_matrix](visualizations/logistic_regression_confusion_matrix.png)
-The Logistic Regression model shows a strong bias toward predicting the "stable" class, essentially betting that nothing dramatic will happen after earnings announcements.
+The Logistic Regression model shows a strong bias toward predicting the "stable" class and performs poorly overall, especially on Up class
 
 ![random_forest_confusion_matrix](visualizations/random_forest_confusion_matrix.png)
-The Random Forest model makes more balanced predictions across classes, correctly identifying 22 of 30 "down" movements and 42 of 46 "stable" periods.
+The Random Forest model has strong overall performance with much better Up classification than logistic regression. It is nearly perfect on Stable but there is still some confusion between Down and Stable.
+
+![ada_boost_confusion_matrix](visualizations/adaboost_confusion_matrix.png)
+The AdaBoost model performs best on Stable and struggles with Up. It is balanced but not particularly strong at distinguishing “Up” from others.
+
+![xgb_boost_confusion_matrix](visualizations/xgboost_confusion_matrix.png)
+The XGBoost model has xcellent classification across all classes, with minimal misclassification. It is the most balanced and accurate, aligning with earlier heatmap results. Only 6 total misclassified out of all samples shows strong sign of high precision and recall per class.
 
 ### **Coefficients Analysis**
 By examining the coefficients from our Logistic Regression model, we gain valuable insights into the factors driving each movement class:
@@ -204,6 +210,18 @@ For "stable" predictions, higher RSI and positive pre-returns indicate stability
 ### **Up Class Coefficients**
 ![lr_coefficients_stable](visualizations/lr_coefficients_up.png)
 For "up" predictions, increased trading volume before earnings is the strongest predictor.
+
+### **Feature Importance**
+Examining feature importance help us understand which features your models rely on most when predicting stock movement.
+
+![rf_fi](visualizations/random_forest_feature_importance.png)
+pre_volume_change, pre_return, and pre_rsi are most influential, but sentiment_positive and sentiment_negative have near-zero importance.
+
+![adaboost_fi](visualizations/adaboost_feature_importance.png)
+Sentiment breakdown (positive/negative) again appears nearly useless alone.
+
+![xgboost_fi](visualizations/xgboost_feature_importance.png)
+pre_return and pre_volume_change dominate, and sentiment_score adds moderate predictive value. However, pre_rsi and word-level sentiment (positive, negative) contribute very little.
  
 ## **Key Findings**
 ### **Model Performance**
