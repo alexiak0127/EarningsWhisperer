@@ -50,6 +50,37 @@ def load_results():
         results['predictions'][model_name] = pd.read_csv(file)
         print(f"Loaded predictions for {model_name}")
     
+    # Load feature importance files
+    importance_files = []
+    importance_files.extend(glob.glob('results/*_feature_importance.csv'))
+    
+    if importance_files:
+        results['feature_importance'] = {}
+        for file in importance_files:
+            if 'random_forest' in file:
+                model_name = 'Random Forest'
+            elif 'xgboost' in file:
+                model_name = 'XGBoost'
+            else:
+                model_name = os.path.basename(file).split('_feature')[0]
+            
+            results['feature_importance'][model_name] = pd.read_csv(file)
+            print(f"Loaded feature importance for {model_name}")
+    
+    # Check for neural network results
+    nn_comparison_file = 'results/neural_networks/model_comparison.csv'
+    if os.path.exists(nn_comparison_file):
+        results['nn_comparison'] = pd.read_csv(nn_comparison_file)
+        print(f"Loaded neural network model comparison from {nn_comparison_file}")
+
+    nn_confusion_files = glob.glob('results/neural_networks/*_confusion.csv')
+    if nn_confusion_files:
+        results['nn_confusion'] = {}
+        for file in nn_confusion_files:
+            model_name = os.path.basename(file).split('_confusion')[0]
+            results['nn_confusion'][model_name] = pd.read_csv(file, index_col=0)
+            print(f"Loaded neural network confusion matrix for {model_name}")
+    
     return results
 
 
@@ -191,19 +222,23 @@ def create_prediction_analysis(predictions_dict):
 
 # -- Generate sentiment score distribution by company
 
-def visualize_sentiment_distribution(sentiment_data=None):
-
-    # If no sentiment data is provided, load it
-    if sentiment_data is None:
-        sentiment_file = 'data/processed/earnings_sentiment.csv'
-        if not os.path.exists(sentiment_file):
-            print(f"Sentiment data file not found: {sentiment_file}")
-            return
-        sentiment_data = pd.read_csv(sentiment_file)
+def visualize_sentiment_distribution():
+    # Try to load sentiment data from either source
+    sentiment_file_roberta = 'data/processed/earnings_sentiment_roberta.csv'
+    sentiment_file_keyword = 'data/processed/earnings_sentiment_keyword.csv'
     
-    # check - fixed
+    sentiment_data = None
+    
+    if os.path.exists(sentiment_file_roberta):
+        sentiment_data = pd.read_csv(sentiment_file_roberta)
+        print(f"Loaded RoBERTa sentiment data from {sentiment_file_roberta}")
+    elif os.path.exists(sentiment_file_keyword):
+        sentiment_data = pd.read_csv(sentiment_file_keyword)
+        print(f"Loaded keyword-based sentiment data from {sentiment_file_keyword}")
+    
+    # Check if we have data
     if sentiment_data is None or sentiment_data.empty:
-        print("No sentiment data available")
+        print("No sentiment data available for visualization")
         return
     
     # Make box plot of sentiment scores by company
@@ -229,18 +264,47 @@ def main():
     
     results = load_results()
 
-    visualize_model_comparison(results['comparison'])
+    # Visualize traditional ML models
+    if 'comparison' in results and 'nn_comparison' in results:
+        # Combine traditional and neural network model comparisons
+        combined_comparison = pd.concat([results['comparison'], results['nn_comparison']])
+        
+        # Create a single visualization with all models
+        visualize_model_comparison(combined_comparison)
+        plt.savefig('visualizations/all_models_comparison.png', dpi=300)
+        print("Created combined model comparison visualization")
+    else:
+        # Visualize whatever we have
+        if 'comparison' in results:
+            visualize_model_comparison(results['comparison'])
+        if 'nn_comparison' in results:
+            visualize_model_comparison(results['nn_comparison'])
+            plt.savefig('visualizations/nn_model_comparison.png', dpi=300)
     
-    visualize_confusion_matrices(results['confusion'])
+    if 'confusion' in results:
+        visualize_confusion_matrices(results['confusion'])
     
-    visualize_lr_coefficients(results['coefficients'])
+    if 'coefficients' in results:
+        visualize_lr_coefficients(results['coefficients'])
     
-    create_prediction_analysis(results['predictions'])
+    if 'predictions' in results:
+        create_prediction_analysis(results['predictions'])
 
-    visualize_sentiment_distribution(results)
-
+    # # Visualize neural network models
+    # if 'nn_comparison' in results:
+    #     plt.figure(figsize=(8, 6))
+    #     visualize_model_comparison(results['nn_comparison'])
+    #     plt.savefig('visualizations/nn_model_comparison.png', dpi=300)
+    #     print("Created neural network model comparison visualization")
+    
+    # if 'nn_confusion' in results:
+    #     visualize_confusion_matrices(results['nn_confusion'])
+    #     print("Created neural network confusion matrix visualizations")
+    
+    # Visualize sentiment distribution
+    visualize_sentiment_distribution()
     
     print("Visualization generation complete! Check 'visualizations/' directory.")
-
+    
 if __name__ == "__main__":
     main()
