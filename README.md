@@ -25,6 +25,26 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 - Train a **machine learning model** (Classical Models and Deep Neural Networks) to predict stock movement based on report sentiment.
 - Create **visualizations** to showcase stock trends before and after earnings.
 
+## **File Descriptions**
+- `data_collection.py`
+  - Downloads historical stock price data from Yahoo Finance and 8-K earnings filings from the SEC EDGAR database. Outputs are stored under data/raw/ in structured subfolders.
+- `data_processing.py`
+  - Calculates technical indicators and return metrics, labels stock movement, and merges financial data with sentiment. Produces a modeling-ready dataset at data/features/combined_features.csv.
+- `enhanced_sentiment_analysis.py`
+  - Performs transformer-based sentiment analysis using RoBERTa on earnings reports. Generates sentiment scores and categories for use in modeling.
+- `modeling.py`
+  - Trains classical machine learning models (Logistic Regression, Random Forest, AdaBoost, XGBoost) on tabular features. Evaluates and saves performance metrics and model artifacts.
+- `neural_network_model.py`
+  - Implements and trains neural models including FFNN and 1D CNN using Keras. Includes support for early stopping and regularization.
+- `visualizations.py`
+  - Generates plots including confusion matrices, sentiment distributions, and model comparison charts. Saves all visual outputs to the visualizations/ directory.
+ 
+## **Data Pipeline Overview**
+The following sections walk through the full data science lifecycle used in this project, structured around:
+**Data Collection → Data Processing → Sentiment Analysis → Modeling → Evaluation.**
+
+Each step builds on the files described above and shows how the system was implemented from end to end.
+
 ## **Data Collection**
 ### **Sources:**
 - **[Yahoo Finance](https://pypi.org/project/yfinance/)** → I used the Yahoo Finance API (yfinance library) to collect historical stock data for the target companies, covering the period from 2021-01-01 to 2024-12-31. I limited the data range to keep the focus on recent market behavior while avoiding COVID-era volatility. It provides sufficient historical data, since this timeframe includes approximately 12 quarterly reports per company.
@@ -60,15 +80,20 @@ To ensure feasibility and relevance, the project will focus on **10 major public
       <pre> # Sentiment analysis: count positive and negative words
       positive_words = ['increase', 'growth', 'improved', 'higher', 'strong', 'positive', 'exceeded', 'beat', 'record', 'success', 'profit', 'gain'] 
       negative_words = ['decrease', 'decline', 'fell', 'lower', 'weak', 'negative', 'missed', 'loss', 'challenging', 'difficult', 'down', 'reduced'] </pre>
-      This approach allows me to quantify the sentiment expressed in earnings reports.
+      - Score = (#positive - #negative) / total words
+      - Label = positive, negative, or neutral
+      This approach allowed me to quantify the sentiment expressed in earnings reports.
   
   2. **Transformer-Based Sentiment (RoBERTa)** (`enhanced_sentiment_analysis')
       - Tokenized and chunked long earnings texts (512 token limit)
-      - 
-      -  Map labels to positive, neutral, negative
-      -  Score = +probability if positive, −probability if negative, else 0
+      - Run zero-shot inference via RoBERTa classifier
+      - Label mapping:
+        - `LABEL_2`: positive (+score)
+        - `LABEL_1`: neutral (0)
+        - `LABEL_0`: negative (−score)
 
-- **Feature Engineering:** I combine sentiment analysis results with technical indicators to create a comprehensive feature set.
+
+- **Feature Engineering:** I combined sentiment analysis results with technical indicators to create a comprehensive feature set.
 <pre> # Create feature record
         feature = {
             'ticker': ticker,
@@ -101,14 +126,18 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 - One-hot encode categorical variables like sentiment
   
 ### **Machine Learning Models**
-**1. Classical Models**
+
+**Classical Models**: implemented in `modeling.py`
 : implemented in `modeling.py`
   - Logistic Regression
   - Random Forest
   - XGBoost
-  - AdaBoost 
-**2. Deep Learning** : implemented in `neural_network_model.py`
-  - 
+  - AdaBoost
+
+**Deep Learning**: implemented in `neural_network_model.py`
+  - Feedforward Neural Network (FFNN)
+  - 1D Convolutional Neural Network (CNN)
+  - CNN with dense layers and dropout
 
 ### **Evaluation Metrics**
 - Accuracy: Proportion of correctly predicted movements
