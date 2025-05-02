@@ -163,19 +163,23 @@ Hyperparameter tuning done through `GridSearchCV` with stratified k-fold cross-v
   - Confusion Matrix
 - **Feature Importance Analysis**
 
-## **Preliminary Visualizations**
+## **Visualizations**
 ### **Sentiment Distribution by Company** ###
 My analysis of sentiment across companies revealed interesting patterns in how different companies communicate in their earnings reports:
 ![sentiment_distribution](visualizations/sentiment_distribution.png)
 This visualization demonstrates that:
-- Companies like Apple, Microsoft, and Google consistently use positive language in their reports
-- AMD and Intel show more variability in sentiment scores
-- NVIDIA occasionally shows sharp negative sentiment, likely tied to specific challenging quarters
+- Most companies show strongly positive sentiment overall, with medians close to 1.0 (the upper bound of the sentiment score range).
+- Companies like MSFT, META, AMD, and INTC show greater variability, with wider interquartile ranges and more outliers on the lower end.
+- TSLA, CRM, and AAPL have tighter distributions, indicating more consistently positive sentiment.
+- Some outliers appear far below the typical sentiment range (e.g., near -0.6 for AAPL, MSFT, GOOGL), reflecting occasional filings with notably negative tone or content
 
 ### **Model Accuracy Comparison** ###
 I compared the performance of two machine learning approaches:
 ![model_comparison](visualizations/model_comparison.png)
-The Random Forest model significantly outperforms Logistic Regression, achieving 79.07% accuracy compared to 53.49%. This improvement confirms that ensemble methods better capture the complex, non-linear relationships in my data.
+- XGBoost is the top-performing model with an accuracy of 94.4%, indicating highly effective learning from both numerical and sentiment-based features.
+- Random Forest and AdaBoost follow with 75.0% and 68.5%, respectively, showing strong but slightly less robust performance.
+- Logistic Regression performs modestly at 44.4%, suggesting limitations in modeling complex, non-linear interactions.
+- The Random Baseline (35.2%) provides a naive reference — it predicts at chance level for a 3-class problem.
 
 ### **Class-Specific Performance** ###
 Examining performance across different movement classes provides deeper insights:
