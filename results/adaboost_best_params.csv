@@ -1,0 +1,2 @@
+algorithm,learning_rate,n_estimators
+SAMME,1.0,100

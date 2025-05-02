@@ -1,7 +1,8 @@
 Feature,Coefficient
-sentiment_score,-0.02926733765814301
-pre_return,-0.10023564805959859
-pre_volume_change,0.14574762996625087
-pre_rsi,0.0910113341968026
-sentiment_score,-0.02926733765814301
-sentiment_positive,0.0
+sentiment_score,-0.07724755775521991
+pre_return,-0.14407910389570522
+pre_volume_change,0.13657554870088442
+pre_rsi,-0.06560951133997782
+sentiment_score,-0.07724755775521996
+sentiment_negative,-0.14805146167192423
+sentiment_positive,0.14805146167192432

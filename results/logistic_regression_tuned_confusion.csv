@@ -1,0 +1,4 @@
+,Pred_Down,Pred_Stable,Pred_Up
+True_Down,1,0,0
+True_Stable,0,1,0
+True_Up,0,0,1

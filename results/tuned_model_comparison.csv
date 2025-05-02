@@ -1,0 +1,6 @@
+Model,Accuracy
+Random Baseline,0.3333333333333333
+Logistic Regression,1.0
+Random Forest,1.0
+AdaBoost,1.0
+XGBoost,1.0

@@ -1,4 +1,4 @@
 ,Pred_Down,Pred_Stable,Pred_Up
-True_Down,22,8,0
-True_Stable,2,42,2
-True_Up,3,3,4
+True_Down,25,13,2
+True_Stable,4,41,1
+True_Up,2,5,15

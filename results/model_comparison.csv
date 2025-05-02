@@ -1,3 +1,6 @@
 Model,Accuracy
-Logistic Regression,0.5348837209302325
-Random Forest,0.7906976744186046
+XGBoost,0.9444444444444444
+Random Forest,0.75
+AdaBoost,0.6851851851851852
+Logistic Regression,0.4444444444444444
+Random Baseline,0.35185185185185186
