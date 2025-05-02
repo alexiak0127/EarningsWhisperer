@@ -1,88 +1,89 @@
 import pandas as pd
 import numpy as np
 import os
-from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, RandomizedSearchCV
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-import xgboost as xgb
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, make_scorer
-import time
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.dummy import DummyClassifier
 import joblib
+from xgboost import XGBClassifier 
 
+# Create directories
 os.makedirs('results', exist_ok=True)
 os.makedirs('models', exist_ok=True)
 
 
-# loads the feature dataset
+# Load the feature dataset
 def load_features():
     features_file = 'data/features/combined_features.csv'
     
-    # error - fixed
     if not os.path.exists(features_file):
         print(f"Features file not found: {features_file}")
         return None
     
     df = pd.read_csv(features_file)
-    
     print(f"Loaded {len(df)} samples from {features_file}")
     
     return df
 
-#  -- prepare data for modeling - handles preprocessing --
-def prepare_data(df):
 
-    print("Preparing data for modeling...")
+# Prepare data for modeling
+def prepare_data(df, test_size=0.3):
+    print("\nPreparing data for modeling...")
     
-    # drop rows with missing values
-    original_len = len(df)
+    # Drop rows with missing values
     df = df.dropna()
-    print(f"Removed {original_len - len(df)} rows with missing values")
     
-    # text -> numeric dummy
+    # Create dummy variables for sentiment
     if 'sentiment' in df.columns:
-        df = pd.get_dummies(df, columns=['sentiment'])
+        df = pd.get_dummies(df, columns=['sentiment'], drop_first=False)
     
-    # Feature columns to use for modeling
+    # Select features
     potential_features = [
         'sentiment_score', 'pre_return', 'pre_volume_change', 'pre_rsi'
     ]
-    
-    # Check if all columns exist
     features = [col for col in potential_features if col in df.columns]
-    
-    # Add one-hot encoded features if they exist
     sentiment_cols = [col for col in df.columns if col.startswith('sentiment_')]
     features.extend(sentiment_cols)
-
-    print(f"Using these features: {features}")
     
-    # Ensure the target exists
-    if 'target' not in df.columns:
-        print("Error: No target column found!")
-        return None, None, None, None, None
+    print(f"Using features: {features}")
     
     # Split features and target
     X = df[features]
     y = df['target']
     
-    # Split into training and testing sets 
-    # - 80% train, 20% test
+    # Check class distribution
+    class_counts = pd.Series(y).value_counts().sort_index()
+    print(f"Class distribution: {class_counts.to_dict()}")
+    
+    # Increase test size for small datasets to ensure at least 3 samples per class
+    if min(class_counts) < 10:
+        print("Small dataset detected. Adjusting test size to ensure enough samples per class.")
+        test_size = 0.5
+    
+    # Split into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
+        X, y, test_size=test_size, random_state=42, stratify=y
     )
     
-    # Standardize the features
+    # Standardize features
     scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
     
-    print(f"Training set size: {len(X_train)}, Testing set size: {len(X_test)}")
+    print(f"Training set: {len(X_train)} samples")
+    print(f"Test set: {len(X_test)} samples")
     
-    return X_train, X_test, y_train, y_test, features, scaler
+    # Check class balance in test set
+    test_class_counts = pd.Series(y_test).value_counts().sort_index()
+    print(f"Test set class distribution: {test_class_counts.to_dict()}")
+    
+    return X_train_scaled, X_test_scaled, y_train, y_test, features, scaler
 
 
+# Random baseline model
 def random_baseline_model(X_test, y_test):
     print("\nEvaluating Random Baseline...")
 
@@ -115,246 +116,194 @@ def random_baseline_model(X_test, y_test):
         'report': report
     }
 
-# -- Hyperparameter tuning for logistic regression --
-def tune_logistic_regression(X_train, y_train, cv=5):
-    """Tune hyperparameters for logistic regression model"""
-    
-    print("Tuning logistic regression hyperparameters...")
+
+# Train logistic regression model with hyperparameter tuning
+def train_logistic_regression(X_train, y_train, cv=5):
+    print("\nTraining logistic regression model with hyperparameter tuning...")
     
     # Define parameter grid
     param_grid = {
-        'C': [0.001, 0.01, 0.1, 1, 10, 100],
-        'penalty': ['l1', 'l2', 'elasticnet', None],
-        'solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],
-        'max_iter': [1000, 2000]
+        'C': [0.01, 0.1, 1.0, 10.0, 100.0],
+        'solver': ['lbfgs'],  # Use only lbfgs for multinomial
+        'max_iter': [1000]
     }
     
-    # Remove invalid combinations
-    valid_params = []
-    for p in param_grid['penalty']:
-        for s in param_grid['solver']:
-            # l1 only works with liblinear and saga
-            if p == 'l1' and s not in ['liblinear', 'saga']:
-                continue
-            # elasticnet only works with saga
-            if p == 'elasticnet' and s != 'saga':
-                continue
-            # None penalty works with all solvers
-            valid_params.append({'penalty': p, 'solver': s})
-    
     # Create base model
-    lr = LogisticRegression(random_state=42)
-    
-    # Use RandomizedSearchCV to find best parameters
-    random_search = RandomizedSearchCV(
-        estimator=lr,
-        param_distributions={
-            'C': param_grid['C'],
-            'max_iter': param_grid['max_iter']
-        },
-        n_iter=10,
-        cv=cv,
-        verbose=1,
-        random_state=42,
-        n_jobs=-1
+    base_model = LogisticRegression(
+        multi_class='multinomial',
+        random_state=42
     )
     
-    # Iterate through valid penalty/solver combinations
-    best_score = 0
-    best_params = None
-    best_model = None
+    # Create StratifiedKFold for cross-validation
+    cv_folds = StratifiedKFold(n_splits=cv, shuffle=True, random_state=42)
     
-    for params in valid_params:
-        try:
-            print(f"Trying parameters: {params}")
-            lr.set_params(**params)
-            random_search.estimator = lr
-            random_search.fit(X_train, y_train)
-            
-            if random_search.best_score_ > best_score:
-                best_score = random_search.best_score_
-                best_params = {**params, **random_search.best_params_}
-                best_model = random_search.best_estimator_
-        except Exception as e:
-            print(f"Error with parameters {params}: {e}")
-    
-    print(f"Best parameters: {best_params}")
-    print(f"Best cross-validation score: {best_score:.4f}")
-    
-    # Retrain with best parameters
-    final_model = LogisticRegression(**best_params, random_state=42)
-    final_model.fit(X_train, y_train)
-    
-    # Save the model and parameters
-    joblib.dump(final_model, 'models/logistic_regression_tuned.pkl')
-    pd.DataFrame([best_params]).to_csv('results/logistic_regression_best_params.csv', index=False)
-    
-    return final_model
-
-
-# -- Hyperparameter tuning for Random Forest --
-def tune_random_forest(X_train, y_train, features, cv=5):
-    """Tune hyperparameters for random forest classifier"""
-    
-    print("Tuning Random Forest hyperparameters...")
-    
-    # Define parameter grid
-    param_grid = {
-        'n_estimators': [50, 100, 200, 300],
-        'max_depth': [None, 5, 10, 15, 20],
-        'min_samples_split': [2, 5, 10],
-        'min_samples_leaf': [1, 2, 4],
-        'max_features': ['sqrt', 'log2', None]
-    }
-    
-    # Create base model
-    rf = RandomForestClassifier(random_state=42)
-    
-    # Use RandomizedSearchCV to find best parameters
-    random_search = RandomizedSearchCV(
-        estimator=rf,
-        param_distributions=param_grid,
-        n_iter=20,
-        cv=cv,
-        verbose=1,
-        random_state=42,
-        n_jobs=-1
-    )
-    
-    random_search.fit(X_train, y_train)
-    
-    best_params = random_search.best_params_
-    print(f"Best parameters: {best_params}")
-    print(f"Best cross-validation score: {random_search.best_score_:.4f}")
-    
-    # Retrain with best parameters
-    final_model = RandomForestClassifier(**best_params, random_state=42)
-    final_model.fit(X_train, y_train)
-    
-    # Save the model and parameters
-    joblib.dump(final_model, 'models/random_forest_tuned.pkl')
-    pd.DataFrame([best_params]).to_csv('results/random_forest_best_params.csv', index=False)
-    
-    return final_model
-
-
-# -- Hyperparameter tuning for AdaBoost --
-def tune_adaboost(X_train, y_train, features, cv=5):
-    """Tune hyperparameters for AdaBoost classifier"""
-    
-    print("Tuning AdaBoost hyperparameters...")
-    
-    # Define parameter grid
-    param_grid = {
-        'n_estimators': [50, 100, 200, 300],
-        'learning_rate': [0.01, 0.1, 0.5, 1.0],
-        'algorithm': ['SAMME', 'SAMME.R']
-    }
-    
-    # Create base model
-    adaboost = AdaBoostClassifier(random_state=42)
-    
-    # Use GridSearchCV to find best parameters
+    # Create GridSearchCV
     grid_search = GridSearchCV(
-        estimator=adaboost,
+        estimator=base_model,
         param_grid=param_grid,
-        cv=cv,
-        verbose=1,
-        n_jobs=-1
+        cv=cv_folds,
+        scoring='accuracy',
+        n_jobs=-1,
+        verbose=1
     )
     
+    # Train model
     grid_search.fit(X_train, y_train)
     
-    best_params = grid_search.best_params_
-    print(f"Best parameters: {best_params}")
+    print(f"Best parameters: {grid_search.best_params_}")
     print(f"Best cross-validation score: {grid_search.best_score_:.4f}")
     
-    # Retrain with best parameters
-    final_model = AdaBoostClassifier(**best_params, random_state=42)
-    final_model.fit(X_train, y_train)
-    
-    # Save the model and parameters
-    joblib.dump(final_model, 'models/adaboost_tuned.pkl')
-    pd.DataFrame([best_params]).to_csv('results/adaboost_best_params.csv', index=False)
-    
-    return final_model
+    # Return best model
+    return grid_search.best_estimator_
 
 
-# -- Hyperparameter tuning for XGBoost --
-def tune_xgboost(X_train, y_train, features, cv=5):
-    """Tune hyperparameters for XGBoost classifier"""
+# Train random forest model with hyperparameter tuning
+def train_random_forest(X_train, y_train, cv=5):
+    print("\nTraining random forest model with hyperparameter tuning...")
     
-    print("Tuning XGBoost hyperparameters...")
+    # Define parameter grid
+    param_grid = {
+        'n_estimators': [50, 100, 200],
+        'max_depth': [None, 10, 20],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4]
+    }
     
-    # Map target values from {-1, 0, 1} to {0, 1, 2}
+    # Create base model
+    base_model = RandomForestClassifier(random_state=42)
+    
+    # Create StratifiedKFold for cross-validation
+    cv_folds = StratifiedKFold(n_splits=cv, shuffle=True, random_state=42)
+    
+    # Create GridSearchCV
+    grid_search = GridSearchCV(
+        estimator=base_model,
+        param_grid=param_grid,
+        cv=cv_folds,
+        scoring='accuracy',
+        n_jobs=-1,
+        verbose=1
+    )
+    
+    # Train model
+    grid_search.fit(X_train, y_train)
+    
+    print(f"Best parameters: {grid_search.best_params_}")
+    print(f"Best cross-validation score: {grid_search.best_score_:.4f}")
+    
+    # Return best model
+    return grid_search.best_estimator_
+
+
+# Train AdaBoost model with hyperparameter tuning
+def train_adaboost(X_train, y_train, cv=5):
+    print("\nTraining AdaBoost model with hyperparameter tuning...")
+    
+    # Define parameter grid
+    param_grid = {
+        'n_estimators': [50, 100, 200],
+        'learning_rate': [0.01, 0.1, 1.0]
+    }
+    
+    # Create base model
+    base_model = AdaBoostClassifier(random_state=42)
+    
+    # Create StratifiedKFold for cross-validation
+    cv_folds = StratifiedKFold(n_splits=cv, shuffle=True, random_state=42)
+    
+    # Create GridSearchCV
+    grid_search = GridSearchCV(
+        estimator=base_model,
+        param_grid=param_grid,
+        cv=cv_folds,
+        scoring='accuracy',
+        n_jobs=-1,
+        verbose=1
+    )
+    
+    # Train model
+    grid_search.fit(X_train, y_train)
+    
+    print(f"Best parameters: {grid_search.best_params_}")
+    print(f"Best cross-validation score: {grid_search.best_score_:.4f}")
+    
+    # Return best model
+    return grid_search.best_estimator_
+
+
+# Train XGBoost model with hyperparameter tuning
+def train_xgboost(X_train, y_train, cv=5):
+    
+    print("\nTraining XGBoost model with hyperparameter tuning...")
+    
+    # Map target values for XGBoost (from -1,0,1 to 0,1,2)
     target_mapping = {-1: 0, 0: 1, 1: 2}
     y_train_mapped = np.array([target_mapping.get(label, 0) for label in y_train])
     
     # Define parameter grid
     param_grid = {
-        'max_depth': [3, 5, 7, 9],
-        'learning_rate': [0.01, 0.05, 0.1, 0.2],
-        'n_estimators': [50, 100, 200, 300],
-        'subsample': [0.6, 0.8, 1.0],
-        'colsample_bytree': [0.6, 0.8, 1.0],
-        'min_child_weight': [1, 3, 5]
-    }
-    
-    # Fixed parameters
-    fixed_params = {
-        'objective': 'multi:softmax',
-        'num_class': 3,
-        'seed': 42
+        'max_depth': [3, 5, 7],
+        'learning_rate': [0.01, 0.1, 0.2],
+        'n_estimators': [50, 100, 200],
+        'subsample': [0.8, 1.0],
+        'colsample_bytree': [0.8, 1.0]
     }
     
     # Create base model
-    xgb_model = xgb.XGBClassifier(**fixed_params)
-    
-    # Use RandomizedSearchCV to find best parameters
-    random_search = RandomizedSearchCV(
-        estimator=xgb_model,
-        param_distributions=param_grid,
-        n_iter=20,
-        cv=cv,
-        verbose=1,
-        random_state=42,
-        n_jobs=-1
+    base_model = XGBClassifier(
+        objective='multi:softmax',
+        num_class=3,
+        random_state=42
     )
     
-    random_search.fit(X_train, y_train_mapped)
+    # Create StratifiedKFold for cross-validation
+    cv_folds = StratifiedKFold(n_splits=cv, shuffle=True, random_state=42)
     
-    best_params = random_search.best_params_
-    print(f"Best parameters: {best_params}")
-    print(f"Best cross-validation score: {random_search.best_score_:.4f}")
+    # Create GridSearchCV
+    grid_search = GridSearchCV(
+        estimator=base_model,
+        param_grid=param_grid,
+        cv=cv_folds,
+        scoring='accuracy',
+        n_jobs=-1,
+        verbose=1
+    )
     
-    # Combine best parameters with fixed parameters
-    final_params = {**best_params, **fixed_params}
+    # Train model
+    grid_search.fit(X_train, y_train_mapped)
     
-    # Retrain with best parameters
-    final_model = xgb.XGBClassifier(**final_params)
-    final_model.fit(X_train, y_train_mapped)
+    print(f"Best parameters: {grid_search.best_params_}")
+    print(f"Best cross-validation score: {grid_search.best_score_:.4f}")
     
-    # Save the model and parameters
-    joblib.dump(final_model, 'models/xgboost_tuned.pkl')
-    pd.DataFrame([best_params]).to_csv('results/xgboost_best_params.csv', index=False)
+    # Save mapping for later use
+    joblib.dump(target_mapping, 'models/xgboost_mapping.pkl')
     
-    return final_model, target_mapping
+    # Return best model
+    return grid_search.best_estimator_
 
 
-# -- Evaluate the model --
-def evaluate_model(model, X_test, y_test, model_name, features, target_mapping=None):
-    """Evaluate model performance"""
-
+# Evaluate model
+def evaluate_model(model, X_test, y_test, model_name, features):
     print(f"\nEvaluating {model_name}...")
     
-    # Predict
+    # Skip if model is None (could happen with XGBoost)
+    if model is None:
+        print(f"No {model_name} model to evaluate.")
+        return None
+    
+    # Handle XGBoost predictions specially (need to map values back)
     if model_name == 'XGBoost':
-        y_pred_mapped = model.predict(X_test).astype(int)
+        # Load mapping
+        target_mapping = joblib.load('models/xgboost_mapping.pkl')
+        reverse_mapping = {0: -1, 1: 0, 2: 1}
         
-        # Convert back from mapped values to original values
-        mapping_reverse = {0: -1, 1: 0, 2: 1}
-        y_pred = np.array([mapping_reverse.get(label, 0) for label in y_pred_mapped])
+        # Get mapped predictions
+        y_pred_mapped = model.predict(X_test)
+        
+        # Convert back to original values
+        y_pred = np.array([reverse_mapping.get(label, 0) for label in y_pred_mapped])
     else:
+        # Regular prediction
         y_pred = model.predict(X_test)
     
     # Calculate metrics
@@ -365,108 +314,122 @@ def evaluate_model(model, X_test, y_test, model_name, features, target_mapping=N
     print(f"\n{model_name} Results:")
     print(f"Accuracy: {accuracy:.4f}")
     print(report)
-
-    # Save confusion matrix for visualization
-    cm_df = pd.DataFrame(
-        cm, 
-        columns=['Pred_Down', 'Pred_Stable', 'Pred_Up'],
-        index=['True_Down', 'True_Stable', 'True_Up']
-    )
-    cm_df.to_csv(f'results/{model_name.lower().replace(" ", "_")}_tuned_confusion.csv')
     
-    # Save predictions for later analysis
-    pred_df = pd.DataFrame({
-        'true': y_test,
-        'pred': y_pred
-    })
-    pred_df.to_csv(f'results/{model_name.lower().replace(" ", "_")}_tuned_predictions.csv')
+    # Define class labels for confusion matrix
+    class_labels = {-1: 'Down', 0: 'Stable', 1: 'Up'}
     
-    # For logistic regression, save coefficients
-    if isinstance(model, LogisticRegression):
+    # Get unique classes present in y_test and y_pred
+    unique_classes = sorted(np.unique(np.concatenate([y_test, y_pred])))
+    
+    # Create labels for confusion matrix
+    col_labels = [f"Pred_{class_labels.get(c, str(c))}" for c in unique_classes]
+    row_labels = [f"True_{class_labels.get(c, str(c))}" for c in unique_classes]
+    
+    # Save confusion matrix
+    cm_df = pd.DataFrame(cm, columns=col_labels, index=row_labels)
+    cm_df.to_csv(f'results/{model_name.lower().replace(" ", "_")}_confusion.csv')
+    
+    # Save predictions
+    pred_df = pd.DataFrame({'true': y_test, 'pred': y_pred})
+    pred_df.to_csv(f'results/{model_name.lower().replace(" ", "_")}_predictions.csv')
+    
+    # Save model-specific outputs
+    if model_name == 'Logistic Regression':
         if hasattr(model, 'coef_'):
-            coef_df = pd.DataFrame({
+            # Save coefficients for each class
+            for i, c in enumerate(model.classes_):
+                class_name = class_labels.get(c, str(c)).lower()
+                coef_df = pd.DataFrame({
+                    'Feature': features,
+                    'Coefficient': model.coef_[i]
+                })
+                coef_df.to_csv(f'results/logistic_regression_coefficients_{class_name}.csv', index=False)
+    
+    elif model_name in ['Random Forest', 'AdaBoost', 'XGBoost']:
+        if hasattr(model, 'feature_importances_'):
+            importance_df = pd.DataFrame({
                 'Feature': features,
-                'Coefficient': model.coef_[0] if model.coef_.shape[0] == 1 else model.coef_[0]
-            })
-            coef_df.to_csv(f'results/logistic_regression_tuned_coefficients.csv', index=False)
+                'Importance': model.feature_importances_
+            }).sort_values('Importance', ascending=False)
+            
+            importance_df.to_csv(f'results/{model_name.lower().replace(" ", "_")}_feature_importance.csv', index=False)
     
-    # For Random Forest, save feature importance
-    if model_name == 'Random Forest':
-        importance_df = pd.DataFrame({
-            'Feature': features,
-            'Importance': model.feature_importances_
-        }).sort_values('Importance', ascending=False)
-        importance_df.to_csv(f'results/random_forest_tuned_feature_importance.csv', index=False)
-    
-    # For AdaBoost, save feature importance
-    elif model_name == 'AdaBoost':
-        importance_df = pd.DataFrame({
-            'Feature': features,
-            'Importance': model.feature_importances_
-        }).sort_values('Importance', ascending=False)
-        importance_df.to_csv(f'results/adaboost_tuned_feature_importance.csv', index=False)
-
-    # For XGBoost, save feature importance
-    elif model_name == 'XGBoost':
-        importance_df = pd.DataFrame({
-            'Feature': features,
-            'Importance': model.feature_importances_
-        }).sort_values('Importance', ascending=False)
-        importance_df.to_csv(f'results/xgboost_tuned_feature_importance.csv', index=False)
-
     return {
         'accuracy': accuracy,
         'report': report
     }
 
 
+# Main function
 def main():
-    print("Starting modeling with hyperparameter tuning...")
-    start_time = time.time()
+    print("Starting modeling process...")
     
+    # Load dataset
     df = load_features()
     if df is None:
         print("Failed to load data. Exiting.")
         return
     
+    # Prepare data
     X_train, X_test, y_train, y_test, features, scaler = prepare_data(df)
-    if X_train is None:
-        print("Data preparation failed. Exiting.")
-        return
     
-    # Save the scaler for future use
+    # Save scaler for future use
     joblib.dump(scaler, 'models/standard_scaler.pkl')
     
+    # Train and evaluate models
     model_results = {}
     
-    print("\n--- Random Baseline ---")
-    model_results['Random Baseline'] = random_baseline_model(y_test)
+    # Random baseline
+    model_results['Random Baseline'] = random_baseline_model(X_test, y_test)
     
-    print("\n--- Logistic Regression with Hyperparameter Tuning ---")
-    lr_model = tune_logistic_regression(X_train, y_train)
+    # Number of cross-validation folds
+    # Adjust automatically for small datasets
+    n_classes = len(np.unique(y_train))
+    min_samples_per_class = min(pd.Series(y_train).value_counts())
+    cv_folds = min(5, min_samples_per_class // 2)  # Ensure at least 2 samples per class per fold
+    cv_folds = max(2, cv_folds)  # Minimum 2 folds
+    print(f"\nUsing {cv_folds} cross-validation folds based on dataset size")
+    
+    # Logistic Regression
+    lr_model = train_logistic_regression(X_train, y_train, cv=cv_folds)
+    joblib.dump(lr_model, 'models/logistic_regression.pkl')
     model_results['Logistic Regression'] = evaluate_model(lr_model, X_test, y_test, 'Logistic Regression', features)
     
-    print("\n--- Random Forest with Hyperparameter Tuning ---")
-    rf_model = tune_random_forest(X_train, y_train, features)
+    # Random Forest
+    rf_model = train_random_forest(X_train, y_train, cv=cv_folds)
+    joblib.dump(rf_model, 'models/random_forest.pkl')
     model_results['Random Forest'] = evaluate_model(rf_model, X_test, y_test, 'Random Forest', features)
     
-    print("\n--- AdaBoost with Hyperparameter Tuning ---")
-    adaboost_model = tune_adaboost(X_train, y_train, features)
-    model_results['AdaBoost'] = evaluate_model(adaboost_model, X_test, y_test, 'AdaBoost', features)
-
-    print("\n--- XGBoost with Hyperparameter Tuning ---")
-    xgb_model, target_mapping = tune_xgboost(X_train, y_train, features)
-    model_results['XGBoost'] = evaluate_model(xgb_model, X_test, y_test, 'XGBoost', features, target_mapping)
+    # AdaBoost
+    ada_model = train_adaboost(X_train, y_train, cv=cv_folds)
+    joblib.dump(ada_model, 'models/adaboost.pkl')
+    model_results['AdaBoost'] = evaluate_model(ada_model, X_test, y_test, 'AdaBoost', features)
     
-    # Compare all models
+    # XGBoost
+    xgb_model = train_xgboost(X_train, y_train, cv=cv_folds)
+    if xgb_model is not None:
+        joblib.dump(xgb_model, 'models/xgboost.pkl')
+        model_results['XGBoost'] = evaluate_model(xgb_model, X_test, y_test, 'XGBoost', features)
+    
+    # Save model comparison
     results_df = pd.DataFrame({
-        'Model': list(model_results.keys()),
-        'Accuracy': [r['accuracy'] for r in model_results.values()]
+        'Model': [],
+        'Accuracy': []
     })
-    results_df.to_csv('results/tuned_model_comparison.csv', index=False)
     
-    end_time = time.time()
-    print(f"\nModeling complete! Total time: {(end_time - start_time)/60:.2f} minutes")
+    for model_name, result in model_results.items():
+        if result is not None:
+            results_df = pd.concat([results_df, pd.DataFrame({
+                'Model': [model_name],
+                'Accuracy': [result['accuracy']]
+            })], ignore_index=True)
+    
+    # Sort by accuracy
+    results_df = results_df.sort_values('Accuracy', ascending=False)
+    results_df.to_csv('results/model_comparison.csv', index=False)
+    
+    print("\nModeling complete!")
+    print("Run visualization.py to create charts.")
 
 
 if __name__ == "__main__":

@@ -113,20 +113,11 @@ def visualize_model_comparison(comparison_df):
 # --  generate Confusion Matrix Heatmaps --
 
 def visualize_confusion_matrices(confusion_dict):
-
     for model_name, cm_df in confusion_dict.items():
+        # Raw counts visualization
         plt.figure(figsize=(7, 6))
-        
-        # extract the values + numeric
         cm = cm_df.values.astype(float)
         
-        # normalize each row
-        cm_norm = cm / cm.sum(axis=1, keepdims=True)
-        
-        # replace division errors with 0
-        cm_norm = np.nan_to_num(cm_norm)
-        
-        # Plot confusion matrix
         matrix = sns.heatmap(cm, annot=True, fmt='g', cmap='Blues',
                     xticklabels=cm_df.columns, yticklabels=cm_df.index)
         
@@ -135,12 +126,12 @@ def visualize_confusion_matrices(confusion_dict):
         plt.ylabel('True Label', fontsize=12)
         plt.xlabel('Predicted Label', fontsize=12)
         
-        # Save the plot
         plt.tight_layout()
         plt.savefig(f'visualizations/{model_name}_confusion_matrix.png', dpi=300)
         plt.close()
         
-        print(f"Created confusion matrix visualization for {model_name}")
+        
+        print(f"Created confusion matrix visualizations for {model_name}")
 
 
 # -- Generate Logistic Regression Coefficients --
@@ -177,6 +168,36 @@ def visualize_lr_coefficients(coefficients_dict):
         print(f"Created coefficient visualization for {class_name} class")
 
 
+# -- Generate Feature Importance Visualizations --
+
+def visualize_feature_importance(importance_dict):
+    # Check if we have any feature importance data
+    if not importance_dict:
+        print("No feature importance data available")
+        return
+        
+    for model_name, importance_df in importance_dict.items():
+        plt.figure(figsize=(10, 6))
+        
+        # Sort by importance
+        importance_df = importance_df.sort_values('Importance', ascending=False)
+        
+        # Create bar chart
+        sns.barplot(x='Importance', y='Feature', data=importance_df)
+        
+        plt.title(f'{model_name} Feature Importance', fontsize=14)
+        plt.xlabel('Importance', fontsize=12)
+        plt.ylabel('Feature', fontsize=12)
+        
+        # Save figure
+        plt.tight_layout()
+        model_filename = model_name.lower().replace(' ', '_')
+        plt.savefig(f'visualizations/{model_filename}_feature_importance.png', dpi=300)
+        plt.close()
+        
+        print(f"Created feature importance visualization for {model_name}")
+
+
 #  -- Generate Prediction Accuracy by Class --
 
 def create_prediction_analysis(predictions_dict):
@@ -206,6 +227,10 @@ def create_prediction_analysis(predictions_dict):
         aggfunc='mean'
     )   
     
+    # Create a better visual mapping for class values
+    class_mapping = {-1: 'Down', 0: 'Stable', 1: 'Up'}
+    success_by_class.index = [class_mapping.get(c, c) for c in success_by_class.index]
+    
     sns.heatmap(success_by_class, annot=True, cmap='YlGnBu', fmt='.2f', vmin=0, vmax=1)
     
     plt.title('Model Accuracy by True Class', fontsize=14)
@@ -218,6 +243,42 @@ def create_prediction_analysis(predictions_dict):
     plt.close()
     
     print("Created prediction analysis visualization")
+    
+    # Also create a visualization of the expected random baseline (33.33%)
+    # and the actual performance of each model by class
+    plt.figure(figsize=(10, 6))
+    
+    # Calculate model performance by class
+    model_performance = success_by_class.copy()
+    
+    # Add random baseline as a column for comparison
+    model_performance['Random Baseline (Expected)'] = 1/3
+    
+    # Convert to long form for plotting
+    model_performance_long = model_performance.reset_index().melt(
+        id_vars='index', 
+        var_name='Model', 
+        value_name='Accuracy'
+    )
+    
+    # Plot
+    sns.barplot(x='Model', y='Accuracy', hue='index', data=model_performance_long)
+    
+    # Add a horizontal line at 33.33%
+    plt.axhline(y=1/3, color='red', linestyle='--', alpha=0.7, label='Random Chance (33.33%)')
+    
+    plt.title('Model Accuracy by Class vs. Random Baseline', fontsize=14)
+    plt.xlabel('Model', fontsize=12)
+    plt.ylabel('Accuracy', fontsize=12)
+    plt.legend(title='Class')
+    plt.xticks(rotation=45)
+    
+    # Save figure
+    plt.tight_layout()
+    plt.savefig('visualizations/accuracy_vs_baseline.png', dpi=300)
+    plt.close()
+    
+    print("Created model accuracy vs. baseline visualization")
 
 
 # -- Generate sentiment score distribution by company
@@ -258,7 +319,6 @@ def visualize_sentiment_distribution():
     
 
 
-
 def main():
     print("Starting visualization generation...")
     
@@ -287,19 +347,11 @@ def main():
     if 'coefficients' in results:
         visualize_lr_coefficients(results['coefficients'])
     
+    if 'feature_importance' in results:
+        visualize_feature_importance(results['feature_importance'])
+    
     if 'predictions' in results:
         create_prediction_analysis(results['predictions'])
-
-    # # Visualize neural network models
-    # if 'nn_comparison' in results:
-    #     plt.figure(figsize=(8, 6))
-    #     visualize_model_comparison(results['nn_comparison'])
-    #     plt.savefig('visualizations/nn_model_comparison.png', dpi=300)
-    #     print("Created neural network model comparison visualization")
-    
-    # if 'nn_confusion' in results:
-    #     visualize_confusion_matrices(results['nn_confusion'])
-    #     print("Created neural network confusion matrix visualizations")
     
     # Visualize sentiment distribution
     visualize_sentiment_distribution()
