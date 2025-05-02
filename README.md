@@ -2,7 +2,8 @@
 
 ## **Project Description**
 Earnings reports offer valuable insights into a company's financial health, but investors frequently find it challenging to gauge how the market will react. Predicting stock price movements is challenging because of market efficiency, complex dependencies, and the influence of multiple factors. 
-This project integrates **natural language processing (NLP)** and **historical stock data** to build a machine learning model capable of **predicting stock movement (up, down, or stable)** following earnings announcements. By leveraging sentiment analysis of earnings reports and financial indicators, the project aims to provide a data-driven approach to improve investment decision-making.
+
+EarningsWhisperer integrates **natural language processing (NLP)** and **historical stock data** to build a machine learning model capable of **predicting stock movement (up, down, or stable)** following earnings announcements. By leveraging sentiment analysis of earnings reports and financial indicators, the project aims to provide a data-driven approach to improve investment decision-making.
 
 To ensure feasibility and relevance, the project will focus on **10 major publicly traded tech companies** with significant market influence and high trading volume:
 1. Apple (AAPL)
@@ -16,12 +17,12 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 9. Intel (INTC)
 10. Salesforce (CRM)
 
-🎥 Check out my mid-term presentation here! https://youtu.be/EHeJyJaSBjA
+🎥 Check out my final presentation here!
 
 ## **Goals**
 - Develop a **stock movement prediction model** based on earnings reports.
 - Implement **sentiment analysis** to classify earnings reports as **positive, neutral, or negative**.
-- Train a **machine learning model** (Logistic Regression, Random Forest, and Deep Neural Networks) to predict stock movement based on report sentiment.
+- Train a **machine learning model** (Classical Models and Deep Neural Networks) to predict stock movement based on report sentiment.
 - Create **visualizations** to showcase stock trends before and after earnings.
 
 ## **Data Collection**
@@ -53,11 +54,20 @@ To ensure feasibility and relevance, the project will focus on **10 major public
     - Down (-1): return < -1%
 
 ## **Methodology**
-- **Sentiment Analysis:** I implemented a dictionary-based sentiment analysis approach using financial-specific terminology.
-<pre> # Sentiment analysis: count positive and negative words
-positive_words = ['increase', 'growth', 'improved', 'higher', 'strong', 'positive', 'exceeded', 'beat', 'record', 'success', 'profit', 'gain'] 
-negative_words = ['decrease', 'decline', 'fell', 'lower', 'weak', 'negative', 'missed', 'loss', 'challenging', 'difficult', 'down', 'reduced'] </pre>
-This approach allows me to quantify the sentiment expressed in earnings reports.
+- **Sentiment Analysis:**
+  1. **Dictionary-Based Sentiment**
+      - I implemented a dictionary-based sentiment analysis approach using financial-specific terminology.
+      <pre> # Sentiment analysis: count positive and negative words
+      positive_words = ['increase', 'growth', 'improved', 'higher', 'strong', 'positive', 'exceeded', 'beat', 'record', 'success', 'profit', 'gain'] 
+      negative_words = ['decrease', 'decline', 'fell', 'lower', 'weak', 'negative', 'missed', 'loss', 'challenging', 'difficult', 'down', 'reduced'] </pre>
+      This approach allows me to quantify the sentiment expressed in earnings reports.
+  
+  2. **Transformer-Based Sentiment (RoBERTa)** (`enhanced_sentiment_analysis')
+      - Tokenized and chunked long earnings texts (512 token limit)
+      - 
+      -  Map labels to positive, neutral, negative
+      -  Score = +probability if positive, −probability if negative, else 0
+
 - **Feature Engineering:** I combine sentiment analysis results with technical indicators to create a comprehensive feature set.
 <pre> # Create feature record
         feature = {
@@ -89,9 +99,17 @@ This approach allows me to quantify the sentiment expressed in earnings reports.
 - Split data into 80% training and 20% testing sets
 - Normalize features using StandardScaler
 - One-hot encode categorical variables like sentiment
+  
 ### **Machine Learning Models**
-- Logistic Regression
-- Random Forest
+**1. Classical Models**
+: implemented in `modeling.py`
+  - Logistic Regression
+  - Random Forest
+  - XGBoost
+  - AdaBoost 
+**2. Deep Learning** : implemented in `neural_network_model.py`
+  - 
+
 ### **Evaluation Metrics**
 - Accuracy: Proportion of correctly predicted movements
 - Classification Report
@@ -142,34 +160,67 @@ For "up" predictions, increased trading volume before earnings is the strongest 
 ## **Key Findings**
 ### **Model Performance**
 - Baseline (Random Guessing): ~33% accuracy (3 classes)
-- Logistic Regression: 53.49% accuracy
-- Random Forest: 79.07% accuracy
+- Logistic Regression: 44.44% accuracy
+- Random Forest: 75% accuracy
+- AdaBoost: 68.52%
+- XGBoost: 94.44%
+  
 ### **Class-Specific Performance**
 - Both models excel at predicting "stable" (0) movements (~90% accuracy)
 - Random Forest dramatically outperforms Logistic Regression on "down" (-1) predictions (73% vs. 17%)
 - "Up" (1) predictions remain challenging, with Random Forest achieving moderate success (40%) while Logistic Regression completely fails (0%)
 
-## **Moving Forward**
-Moving forward, I am going to enhance my NLP approach beyond simple dictionary-based sentiment analysis, addressing class imbalance to improve prediction of upward movements. I will also attempt to use Deep Neural Networks.
+## **Limitations**
+- Although I implemented both RoBERTa and Neural Network models and have run them before, my laptop crashed while trying to run certain files again for final check before pushing them to my repo. I lost substantial amount of data.
+- RoBERTa ran for 7+ hours on only 40% of the each filing, but still did not complete.
+
+  📌 Unfortunately, the results were lost, but one interesting observation was that XGBoost outperformed neural networks, which was unexpected. I believe this is because XGBoost handles small-to-medium structured tabular datasets particularly well, while the neural networks likely underperformed due to insufficient data volume and limited training time to leverage their full capacity.
+
+## **Reproducability**
+
+In order to reproduce the result, follow these steps:
+1. Clone the repository:
+   <pre>
+   git clone https://github.com/alexiak0127/EarningsWhisperer.git
+   cd EarningsWhisperer</pre>
+2. Run the entire pipeline:
+
+    `make all`
+    
+    `make all` sets up the environment, processes data, train models, and generates visualizations 
+
+   **Note:**
+- All data (stock prices and earnings filings) is automatically collected via yfinance and sec-edgar-downloader.
+- No need to manually provide raw data.
+
   
 ## **Project Structure**
-Below is the intended project structure (as is in my local machine), but was not able to include the entire data/ due to size constraints.
+Below is the intended project structure (as is in my local machine), but was not able to include the entire data/ due to size constraints. It is not necessary to upload the entire dataset as it is auto-downloaded via yfinance + SEC EDGAR.
 <pre>
-  EarningsWhisperer/
+EarningsWhisperer/
 ├── data/
-│   ├── raw/                  # Not included in repo due to size constraints
-│   │   ├── stock_prices/
-│   │   ├── earnings_dates/
-│   │   └── earnings_filings/
-│   ├── processed/            # Included in repo as processed/
-│   └── features/             # Included in repo as features/
-├── results/
-├── visualizations/
-├── data_collection.py
-├── data_processing.py
-├── modeling.py
-├── visualizations.py
-└── README.md
+│   ├── raw/                  # Not included — auto-downloaded via yfinance + SEC EDGAR
+│   ├── processed/            # Intermediate cleaned data
+│   └── features/             # Final engineered features for modeling
+├── models/                   # Trained model files (output)
+├── results/                  # Model outputs and performance logs
+├── visualizations/           # Output plots and charts
+├── data_collection.py        # Downloads raw stock + earnings data
+├── data_processing.py        # Cleans + engineers features
+├── enhanced_sentiment_analysis.py  # RoBERTa-based sentiment scoring
+├── modeling.py               # Classical ML models (LogReg, RF)
+├── neural_network_model.py   # Neural models (FFNN, CNN, LSTM)
+├── visualizations.py         # All chart generation code
+├── Makefile                  # Reproducibility: install, run, test
+├── requirements.txt          # Python dependencies
+└── README.md                 # Final report and project documentation
+
 </pre>
 
-In investing, an informed guess beats a gut feeling!
+## **Reflection**
+This project taught me the importance of designing robust and modular pipelines in real-world machine learning tasks. Working across multiple stages from data processing to modeling and evaluation challenged me to integrate domain knowledge with technical skills. Although hardware limitations prevented full execution of neural networks and RoBERTa on the complete dataset, I was able to implement and structure them correctly, which reflects a solid grasp of both classical and modern ML techniques.
+
+Most importantly, I learned how model selection, data limitations, and execution constraints can significantly shape outcomes. The surprising strength of XGBoost on this dataset—compared to early neural net trials—demonstrated that the most complex model is not always the most effective in practice. Building for reproducibility and clarity also taught me how crucial clean code and documentation are for collaboration and debugging.
+
+
+**In investing, an informed guess beats a gut feeling!**
