@@ -1,5 +1,3 @@
-# .github/workflows/test.yml
-
 name: Run Tests
 
 on: [push, pull_request]
@@ -24,7 +22,7 @@ jobs:
         pip install pytest
 
     - name: Run data pipeline
-      run: make run  # This should generate combined_features.csv
+      run: make run  # Builds combined_features.csv
 
     - name: Run tests
       run: PYTHONPATH=. pytest tests/
