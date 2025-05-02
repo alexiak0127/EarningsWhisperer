@@ -38,6 +38,12 @@ To ensure feasibility and relevance, the project will focus on **10 major public
   - Implements and trains neural models including FFNN and 1D CNN using Keras. Includes support for early stopping and regularization.
 - `visualizations.py`
   - Generates plots including confusion matrices, sentiment distributions, and model comparison charts. Saves all visual outputs to the visualizations/ directory.
+- `create_sample_data.py`
+  - Creates a smaller subset of test data for developing and testing the EarningsWhisperer pipeline without requiring the full data collection process.
+- `Makefile`
+  - Provides a streamlined way to build, run, and manage the project.
+- `requirements.txt`
+  - Lists all the Python package dependencies required by the project.
  
 ## **Data Pipeline Overview**
 The following sections walk through the full data science lifecycle used in this project, structured around:
@@ -92,7 +98,6 @@ Each step builds on the files described above and shows how the system was imple
         - `LABEL_1`: neutral (0)
         - `LABEL_0`: negative (−score)
 
-
 - **Feature Engineering:** I combined sentiment analysis results with technical indicators to create a comprehensive feature set.
 <pre> # Create feature record
         feature = {
@@ -124,25 +129,39 @@ Each step builds on the files described above and shows how the system was imple
 - Split data into 80% training and 20% testing sets
 - Normalize features using StandardScaler
 - One-hot encode categorical variables like sentiment
+- Handle class imbalance by adjusting test size based on dataset size, ensuring sufficient samples per class
   
 ### **Machine Learning Models**
 
+Hyperparameter tuning done through `GridSearchCV` with stratified k-fold cross-validationn to find optimal model configurations while preventing overfitting.
+
+**Baseline:** 
+- Random baseline: Implemented to establish a performance floor (~33% for three-class classification)
+
 **Classical Models**: implemented in `modeling.py`
 : implemented in `modeling.py`
-  - Logistic Regression
-  - Random Forest
-  - XGBoost
-  - AdaBoost
+  - Logistic Regression  
+    : chosen for its interpretability and ability to provide insights into feature importance
+  - Random Forest  
+    : chosen for its strength at capturing non-leinear relationships and outliers
+  - AdaBoost  
+    : chosen for its ability to focus on difficult-to-classify examples
+  - XGBoost  
+    : chosen for its high performance in structured data prediction tasks
 
 **Deep Learning**: implemented in `neural_network_model.py`
   - Feedforward Neural Network (FFNN)
   - 1D Convolutional Neural Network (CNN)
   - CNN with dense layers and dropout
 
-### **Evaluation Metrics**
-- Accuracy: Proportion of correctly predicted movements
-- Classification Report
-- Confusion Matrix
+### **Evaluation Strategy**
+- **Cross-Validation**  
+  : Stratified k-fold cross validation with adaptive fold selection based on dataset size
+- **Metrics**  
+  - Accuracy: Proportion of correctly predicted movements
+  - Classification Report
+  - Confusion Matrix
+- **Feature Importance Analysis**
 
 ## **Preliminary Visualizations**
 ### **Sentiment Distribution by Company** ###
