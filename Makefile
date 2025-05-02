@@ -23,9 +23,9 @@ process: data
 model: process
 	./$(VENV)/bin/python3 modeling.py
 
-# Run neural network models
-neural: model
-	./$(VENV)/bin/python3 neural_network_model.py
+# # Run neural network models
+# neural: model
+# 	./$(VENV)/bin/python3 neural_network_model.py
 
 # Run Visualizations
 visualize:
