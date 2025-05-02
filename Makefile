@@ -37,3 +37,10 @@ clean:
 
 # Reinstall everything
 reinstall: clean install
+
+# Run everything without virtual environment (for GitHub Actions / CI)
+run:
+	python3 create_sample_data.py
+	python3 enhanced_sentiment_analysis.py
+	python3 data_processing.py
+	python3 modeling.py
