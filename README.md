@@ -181,9 +181,11 @@ The Random Forest model significantly outperforms Logistic Regression, achieving
 Examining performance across different movement classes provides deeper insights:
 ![accuracy_by_class](visualizations/accuracy_by_class.png)
 This heatmap shows:
-- logistic_regression performs poorly, especially for "Up" (0.09).
-- Random Forest dramatically outperforms Logistic Regression on "down" (-1) predictions (73% vs. 17%)
-- "Up" (1) predictions remain challenging, with Random Forest achieving moderate success (40%) while Logistic Regression completely fails (0%)
+- XGBoost performs the best overall, achieving high accuracy across all classes (~93–95%).
+- Random Forest also shows strong performance, especially for the Stable class (0.89 accuracy).
+- Adaboost provides moderate performance, doing better on Stable (0.78) than on Up (0.50).
+- Logistic Regression performs poorly for the Up class (0.09), suggesting it struggles to capture the dynamics leading to price increases.
+- The Random Baseline model (random guessing) achieves roughly 33–41% per class, serving as a lower-bound benchmark.
 
 ### **Confusion Matrices** ###
 The confusion matrices reveal the specific prediction patterns of my models:
@@ -203,13 +205,13 @@ The XGBoost model has xcellent classification across all classes, with minimal m
 By examining the coefficients from our Logistic Regression model, we gain valuable insights into the factors driving each movement class:
 ### **Down Class Coefficients**
 ![lr_coefficients_down](visualizations/lr_coefficients_down.png)
-For "down" predictions, lower RSI values and decreased volume tend to precede downward movements.
+For predicting a downward movement, lower RSI values and reduced trading volume prior to earnings are strong indicators.
 ### **Stable Class Coefficients**
 ![lr_coefficients_stable](visualizations/lr_coefficients_stable.png)
-For "stable" predictions, higher RSI and positive pre-returns indicate stability.
+Stable predictions are most associated with higher RSI levels and modest positive returns before the earnings announcement.
 ### **Up Class Coefficients**
 ![lr_coefficients_stable](visualizations/lr_coefficients_up.png)
-For "up" predictions, increased trading volume before earnings is the strongest predictor.
+Upward movements are best predicted by a surge in positive sentiment and increased trading volume leading up to earnings.
 
 ### **Feature Importance**
 Examining feature importance help us understand which features your models rely on most when predicting stock movement.
