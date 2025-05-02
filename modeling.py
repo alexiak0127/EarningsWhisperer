@@ -83,6 +83,38 @@ def prepare_data(df):
     return X_train, X_test, y_train, y_test, features, scaler
 
 
+def random_baseline_model(X_test, y_test):
+    print("\nEvaluating Random Baseline...")
+
+    np.random.seed(42)
+    y_pred = np.random.choice([-1, 0, 1], size=len(y_test))
+
+    accuracy = accuracy_score(y_test, y_pred)
+    report = classification_report(y_test, y_pred)
+    cm = confusion_matrix(y_test, y_pred)
+
+    print(f"\nRandom Baseline Results:")
+    print(f"Accuracy: {accuracy:.4f}")
+    print(report)
+
+    cm_df = pd.DataFrame(
+        cm,
+        columns=['Pred_Down', 'Pred_Stable', 'Pred_Up'],
+        index=['True_Down', 'True_Stable', 'True_Up']
+    )
+    cm_df.to_csv('results/random_baseline_confusion.csv')
+
+    pred_df = pd.DataFrame({
+        'true': y_test,
+        'pred': y_pred
+    })
+    pred_df.to_csv('results/random_baseline_predictions.csv')
+
+    return {
+        'accuracy': accuracy,
+        'report': report
+    }
+
 # -- Hyperparameter tuning for logistic regression --
 def tune_logistic_regression(X_train, y_train, cv=5):
     """Tune hyperparameters for logistic regression model"""
@@ -406,6 +438,9 @@ def main():
     joblib.dump(scaler, 'models/standard_scaler.pkl')
     
     model_results = {}
+    
+    print("\n--- Random Baseline ---")
+    model_results['Random Baseline'] = random_baseline_model(y_test)
     
     print("\n--- Logistic Regression with Hyperparameter Tuning ---")
     lr_model = tune_logistic_regression(X_train, y_train)
