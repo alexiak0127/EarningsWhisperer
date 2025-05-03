@@ -823,22 +823,70 @@ if __name__ == "__main__":
         X_train, X_test, y_train, y_test, features, target_mapping = prepare_data_for_nn(df)
         
         if X_train is not None and y_train is not None:
-            # Train FFNN model
+            # Create inverse mapping for evaluation
+            inverse_mapping = {v: k for k, v in target_mapping.items()}
+            
+            # Set common training parameters
+            batch_size = 32
+            epochs = 50
+            
+            # 1. Train and evaluate FFNN model
+            logger.info("=== Feed-Forward Neural Network (FFNN) ===")
             ffnn_model, ffnn_history = train_neural_network(
                 X_train, y_train, X_test, y_test, 
-                model_type='ffnn', batch_size=32, epochs=50
+                model_type='ffnn', 
+                batch_size=batch_size, 
+                epochs=epochs
             )
             
-            # Evaluate FFNN model
             ffnn_results = evaluate_neural_network(
                 ffnn_model, X_test, y_test, 
-                model_type='ffnn', inverse_mapping={v: k for k, v in target_mapping.items()}
+                model_type='ffnn', 
+                inverse_mapping=inverse_mapping
             )
             
-            # Calculate feature importance for FFNN model
             ffnn_importance = calculate_feature_importance(
-                ffnn_model, X_test, y_test, features, model_type='ffnn'
+                ffnn_model, X_test, y_test, 
+                features, 
+                model_type='ffnn'
             )
+            
+            # 2. Train and evaluate CNN model
+            logger.info("=== Convolutional Neural Network (CNN) ===")
+            cnn_model, cnn_history = train_neural_network(
+                X_train, y_train, X_test, y_test, 
+                model_type='cnn', 
+                batch_size=batch_size, 
+                epochs=epochs
+            )
+            
+            cnn_results = evaluate_neural_network(
+                cnn_model, X_test, y_test, 
+                model_type='cnn', 
+                inverse_mapping=inverse_mapping
+            )
+            
+            cnn_importance = calculate_feature_importance(
+                cnn_model, X_test, y_test, 
+                features, 
+                model_type='cnn'
+            )
+            
+            # 3. Compare model performance
+            logger.info("=== Model Comparison ===")
+            if ffnn_results and cnn_results:
+                ffnn_acc = ffnn_results.get('accuracy', 0)
+                cnn_acc = cnn_results.get('accuracy', 0)
+                
+                logger.info(f"FFNN Accuracy: {ffnn_acc:.4f}")
+                logger.info(f"CNN Accuracy: {cnn_acc:.4f}")
+                
+                if ffnn_acc > cnn_acc:
+                    logger.info("FFNN model performed better")
+                elif cnn_acc > ffnn_acc:
+                    logger.info("CNN model performed better")
+                else:
+                    logger.info("Both models performed equally")
             
             logger.info("Neural network model training and evaluation completed")
         else:
