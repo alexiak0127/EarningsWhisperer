@@ -272,25 +272,45 @@ In order to reproduce the result, follow these steps:
 - All data (stock prices and earnings filings) is automatically collected via yfinance and sec-edgar-downloader.
 - No need to manually provide raw data.
 
+## **Reproducability**
+The project includes basic tests to verify data integrity and ensure the pipeline produces valid outputs. Tests are implemented using pytest.
+
+This project uses GitHub Actions workflow to automatically run tests on push and pull requests. The workflow ensures continuous validation of the codebase, maintaining reliability across versions. 
+
+To view test results:
+
+1. Navigate to the GitHub repository
+2. Click on the "Actions" tab at the top of the repository
+3. View the status of the most recent workflow runs
+
+To run tests locally:
+<pre>
+  pip install pytest
+  pytest tests/test_basic.py
+</pre>
+
   
 ## **Project Structure**
 Below is the intended project structure (as is in my local machine), but was not able to include the entire data/ due to size constraints. It is not necessary to upload the entire dataset as it is auto-downloaded via yfinance + SEC EDGAR.
 <pre>
 EarningsWhisperer/
 ├── data/
-│   ├── raw/                  # Not included — auto-downloaded via yfinance + SEC EDGAR
+│   ├── raw/                  # Not included — file too large, is auto-downloaded via yfinance + SEC EDGAR
 │   ├── processed/            # Intermediate cleaned data
 │   └── features/             # Final engineered features for modeling
 ├── models/                   # Trained model files (output)
 ├── results/                  # Model outputs and performance logs
 ├── visualizations/           # Output plots and charts
+├── tests/                    # Test files to verify functionality
+│   ├── test_basic.py         # basic tests
+├── create_sample_data.py     # Creates sample data for testing convenience
 ├── data_collection.py        # Downloads raw stock + earnings data
 ├── data_processing.py        # Cleans + engineers features
 ├── enhanced_sentiment_analysis.py  # RoBERTa-based sentiment scoring
 ├── modeling.py               # Classical ML models (LogReg, RF)
 ├── neural_network_model.py   # Neural models (FFNN, CNN, LSTM)
 ├── visualizations.py         # All chart generation code
-├── Makefile                  # Reproducibility: install, run, test
+├── Makefile                  # Reproducibility
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Final report and project documentation
 
