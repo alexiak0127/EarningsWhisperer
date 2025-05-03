@@ -4,7 +4,7 @@
 VENV = earningsenv
 
 # Default target
-all: install data process model neural visualize
+all: install data process model visualize
 
 # Setup virtual environment and install dependencies
 install:
