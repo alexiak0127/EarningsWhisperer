@@ -17,7 +17,7 @@ To ensure feasibility and relevance, the project will focus on **10 major public
 9. Intel (INTC)
 10. Salesforce (CRM)
 
-🎥 Check out my final presentation here!
+🎥 Check out my final presentation [here](https://youtu.be/3yOcwVVFeh8)!
 
 ## **Goals**
 - Develop a **stock movement prediction model** based on earnings reports.
