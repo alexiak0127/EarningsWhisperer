@@ -126,7 +126,8 @@ Each step builds on the files described above and shows how the system was imple
 
 ## **Modeling**
 ### **Data Preparation**
-- Split data into 80% training and 20% testing sets
+- Split data into 70% training and 30% testing sets using train_test_split with stratify=y to maintain class distribution
+- Automatically adjust test size to 50% for small datasets (when any class has fewer than 10 samples)
 - Normalize features using StandardScaler
 - One-hot encode categorical variables like sentiment
 - Handle class imbalance by adjusting test size based on dataset size, ensuring sufficient samples per class
